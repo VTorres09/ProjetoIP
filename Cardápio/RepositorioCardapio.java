@@ -9,5 +9,6 @@ public interface RepositorioCardapio {
 	
 	void atualizarPrato(Prato prato);
 	
-	
+	String listarIngredientes(Prato prato);
+		
 }
