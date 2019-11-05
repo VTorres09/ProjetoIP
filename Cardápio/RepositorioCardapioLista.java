@@ -30,12 +30,34 @@ public class RepositorioCardapioLista implements RepositorioCardapio {
 	}
 
 	public String listarPrato() {
-		String retorno = "-------- Card·pio --------" + "\n";
+		String retorno = "-------- Card√°pio --------" + "\n";
 		while (this.prato != null) {
 			retorno = retorno + "Nome: " + this.prato.getNome() + "\n" + "Valor: " + this.prato.getPreco() + "\n"
-					+ "Ingredientes: " + this.prato.getIngredientes() + "\n" + "--------------------------" + "\n";
+					+ "Ingredientes: " + listarIngredientes(this.prato) + "\n" + "--------------------------" + "\n";
 			this.prato = this.proximo.prato;
 			this.proximo = this.proximo.proximo;
+		}
+		return retorno;
+	}
+	
+	public String listarIngredientes(Prato prato) {
+	String retorno = "";
+		if (this.prato != null) {
+			if (this.prato == prato) {
+				for(int i = 0; i<this.prato.getIngredientes().length; i++) {
+					if(i == this.prato.getIngredientes().length-1) {
+					retorno += this.prato.getIngredientes()[i].getNome() + ".";
+					} else {
+					retorno += this.prato.getIngredientes()[i].getNome() + ", ";
+					}
+					
+				}
+			} else {
+				this.proximo.listarIngredientes(prato);
+			}
+			
+		} else {
+			throw new RuntimeException("Esse prato nao existe");
 		}
 		return retorno;
 	}
@@ -53,9 +75,7 @@ public class RepositorioCardapioLista implements RepositorioCardapio {
 	}
 
 	public void atualizarPrato(Prato prato) {
-		if(this.prato != null) {
-			
-		}
+		
 	}
 
 }
