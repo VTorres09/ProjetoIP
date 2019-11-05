@@ -1,13 +1,18 @@
 public class Prato {
 	private String nome;
 	private double preco;
-	private String ingredientes;
+	private Ingrediente[] ingredientes;
 	
-	
-	Prato(String nome, double preco, String ingredientes){
+	//construtor com ingrediente
+	Prato(String nome, double preco, Ingrediente[] ingredientes){
 		this.nome = nome;
 		this.preco = preco;
 		this.ingredientes = ingredientes;
+	}
+	//construtor sem ingrediente
+	Prato(String nome, double preco){
+		this.nome = nome;
+		this.preco = preco;	
 	}
 	
 	String getNome() {
@@ -16,7 +21,7 @@ public class Prato {
 	double getPreco() {
 		return this.preco;
 	}
-	String getIngredientes() {
+	Ingrediente[] getIngredientes() {
 		return this.ingredientes;
 	}
 }
