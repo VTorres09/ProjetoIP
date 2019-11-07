@@ -49,18 +49,11 @@ public class RepositorioFuncionariosLista implements RepositorioFuncionarios {
 	public String listarFuncionarios(String parcial) {
 		String res = "";
 		if (this.funcionario == null) {
-			return parcial;
+			res = parcial;
 		} else {
 			parcial += this.funcionario.getDados() + "\n";
 			res = this.prox.listarFuncionarios(parcial);
 		}
-
-		if (parcial != "")
-			return res;
-		else {
-//ERRO
-			return res;
-		}
-
+		return res;
 	}
 }
