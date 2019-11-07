@@ -9,30 +9,30 @@ public class Cardapio {
 		this.pratos = rep;
 	}
 	
-	public void cadastrar(Prato prato) {
+	public void cadastrar(Prato prato) throws PratoJaCadastradoException {
 		String nomePrato = prato.getNome();
 		if(!pratos.existePrato(nomePrato)) {
 			pratos.adicionarPrato(prato);
 		} else {
-			throw new RuntimeException("Ja cadastrado");
+			throw new PratoJaCadastradoException();
 		}
 				
 	}
 	
-	public void remover(Prato prato) {
+	public void remover(Prato prato) throws PratoNaoCadastradoException {
 		String nomePrato = prato.getNome();
 		if(pratos.existePrato(nomePrato)) {
 			pratos.removerPrato(prato);
 		} else {
-			throw new RuntimeException("Nao cadastrado");
+			throw new PratoNaoCadastradoException();
 		}
 	}
 	
-	public void atualizar(int identificador, String nome, double preco, Ingrediente[] ingredientes) {
+	public void atualizar(int identificador, String nome, double preco, Ingrediente[] ingredientes) throws PratoNaoCadastradoException {
 		if(!pratos.existePrato(nome)) {
 			pratos.atualizarPrato(identificador, nome, preco, ingredientes);
 		} else {
-			throw new RuntimeException("O produto não existe");
+			throw new PratoNaoCadastradoException();
 		}
 	}
 	
