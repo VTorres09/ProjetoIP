@@ -1,4 +1,4 @@
-package Card·pio;
+package Card√°pio;
 
 import Estoque.Ingrediente;
 
@@ -12,7 +12,7 @@ public class Prato {
 		this.nome = nome;
 		this.preco = preco;
 		this.ingredientes = ingredientes;
-		this.identificador += 1;
+		this.identificador = identificador;
 	}
 	//construtor sem ingrediente
 	Prato(String nome, double preco, int identificador){
