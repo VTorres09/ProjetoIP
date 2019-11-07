@@ -77,8 +77,6 @@ public class RepositorioFuncionariosArray implements RepositorioFuncionarios {
 				continuar = false;
 			} else if (funcionario[n] != null) {
 				res += funcionario[n].getDados() + "\n";
-			} else {
-//ERRO
 			}
 			n++;
 		}
