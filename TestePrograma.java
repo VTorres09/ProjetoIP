@@ -1,4 +1,12 @@
 import java.util.*;
+
+import Cardápio.Cardapio;
+import Cardápio.Prato;
+import Cardápio.RepositorioCardapioArray;
+import Cardápio.RepositorioCardapioLista;
+import Estoque.Ingrediente;
+
+
 public class TestePrograma {
 
 	public static void main(String[] args) {
@@ -14,11 +22,11 @@ public class TestePrograma {
 		Ingrediente[] cocaLataa = {cocaLata};
 		
 		//criacao do armazenamento de cardapio
-		RepositorioCardapioArray lista =  new RepositorioCardapioArray(90);
+		RepositorioCardapioLista lista =  new RepositorioCardapioLista();
 		
 		//criacao dos pratos
-		Prato macarronada = new Prato("Macarronada", 24.00, ingredientesMacarronada);
-		Prato cocacola = new Prato("Coca Cola", 6.00, cocaLataa);	
+		Prato macarronada = new Prato("Macarronada", 24.00, ingredientesMacarronada, 1);
+		Prato cocacola = new Prato("Coca Cola", 6.00, cocaLataa, 2);	
 		
 		//criacao cardapio
 		Cardapio cardapio = new Cardapio(lista);
