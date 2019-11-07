@@ -1,4 +1,4 @@
-package Projeto;
+package Estoque;
 
 public class Estoque {
 	private RepositorioEstoque ingredientes;

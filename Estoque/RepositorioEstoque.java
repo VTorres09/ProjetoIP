@@ -1,4 +1,4 @@
-package Projeto;
+package Estoque;
 
 public interface RepositorioEstoque {
 	void inserir(Ingrediente ingrediente);

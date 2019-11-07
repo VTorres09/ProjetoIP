@@ -1,4 +1,4 @@
-package Projeto;
+package Estoque;
 
 public class RepositorioEstoqueLista implements RepositorioEstoque {
 
@@ -58,11 +58,14 @@ public class RepositorioEstoqueLista implements RepositorioEstoque {
 	// Retorna o status de um ingrediente
 	public String listarIngrediente(Ingrediente ingrediente) {
 		// mensagem de erro pois o ingrediente é nulo (Fazer na classe negocio)
+		String resposta = "--------------------------" + "\n";
 		if (this.ingrediente.equals(ingrediente)) {
-			String resposta = "Ingrediente: " + ingrediente.getNome() + "\n" + "Quantidade em Estoque: "
+			resposta += "Ingrediente: " + ingrediente.getNome() + "\n" + "Quantidade em Estoque: "
 					+ ingrediente.getQtd() + ingrediente.getTipoEstoque() + "\n" + "Fornecedor: "
 					+ ingrediente.getFornecedor() + "\n" + "Preço Unitário: " + ingrediente.getPreco() + "\n"
-					+ "Validade: " + ingrediente.getValidade() + "\n";
+					+ "Validade: " + ingrediente.getValidade() + "\n"
+					+ "Identificador: " + ingrediente.getIdentificador() + "\n" +
+					"--------------------------" + "\n";
 			return resposta;
 		} else
 			return this.proximo.listarIngrediente(ingrediente);
@@ -71,13 +74,16 @@ public class RepositorioEstoqueLista implements RepositorioEstoque {
 	// Retorna todo o Estoque atual
 	public String listarEstoque() {
 		// mensagem de erro pois o ingrediente é nulo (Fazer na classe negocio)
-		String resposta = "-------- Estoque --------";
+		String resposta = "-------- Estoque ---------" + "\n";
 		while (this.ingrediente != null) {
-			resposta = "Ingrediente: " + ingrediente.getNome() + "\n" + "Quantidade em Estoque: " + ingrediente.getQtd()
-					+ ingrediente.getTipoEstoque() + "\n" + "Fornecedor: " + ingrediente.getFornecedor() + "\n"
-					+ "Preço Unitário: " + ingrediente.getPreco() + "\n" + "Validade: " + ingrediente.getValidade()
-					+ "\n" + "--------------------------";
-			this.proximo.listarEstoque();
+			resposta += "Ingrediente: " + this.ingrediente.getNome() + "\n" + "Quantidade em Estoque: "
+					+ this.ingrediente.getQtd() + " " + this.ingrediente.getTipoEstoque() + "\n" + "Fornecedor: "
+					+ this.ingrediente.getFornecedor() + "\n" + "Preço Unitário: "
+					+ this.ingrediente.getPreco() + "\n" + "Validade: " + this.ingrediente.getValidade() + "\n"
+					+ "Identificador: " + this.ingrediente.getIdentificador() + "\n";
+			resposta += "--------------------------" + "\n";
+			this.ingrediente = this.proximo.ingrediente;
+			this.proximo = this.proximo.proximo;
 		}
 		return resposta;
 	}

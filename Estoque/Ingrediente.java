@@ -1,5 +1,4 @@
-package Projeto;
-
+package Estoque;
 public class Ingrediente {
 	private String nome;
 	private int qtd;
@@ -7,20 +6,43 @@ public class Ingrediente {
 	private String fornecedor;
 	private double preco;
 	private String validade;
-	private int identificador;
+	private String identificador;
 
 	public Ingrediente(String nome, int qtd, String tipoEstoque, String fornecedor, int preco, String validade,
-			int identificador) {
+			String identificador) {
 		this.nome = nome;
 		this.qtd = qtd;
 		this.tipoEstoque = tipoEstoque;
 		this.fornecedor = fornecedor;
 		this.preco = preco;
 		this.validade = validade;
-		this.identificador = 0;
+		this.identificador = identificador;
 //erro ao tentar iniciar o ingrediente sem um nome e pensar em outras coisas para erro
 	}
+	/*
+	//Esse codigo deve ser colococado no lugar onde o gerador for criado
+	public String gerarIdentificador() {
+	
+		// gerar string aleatoria e checar se o identificador existe
+		String identificador = "";
+		int aux;
 
+		for (int contador = 0; contador < 5; contador++) {
+			if (contador == 1 || contador == 3) {
+				aux = (int) Math.round(Math.random() * 10);
+				if (aux % 3 == 0)
+					identificador += "B";
+				else if (aux % 2 == 0)
+					identificador += "A";
+				else
+					identificador += "C";
+			} else
+				identificador += (int) Math.floor(Math.random() * 10) + "";
+		}
+		return identificador;
+	}
+	*/
+	
 	public String getNome() {
 		return nome;
 	}
@@ -69,11 +91,7 @@ public class Ingrediente {
 		this.validade = validade;
 	}
 
-	public int getIdentificador() {
+	public String getIdentificador() {
 		return identificador;
-	}
-
-	public void setIdentificador(int identificador) {
-		this.identificador = identificador;
 	}
 }
