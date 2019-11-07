@@ -1,8 +1,11 @@
+package Cardápio;
+
+import Estoque.Ingrediente;
 
 public class Cardapio {
 	private RepositorioCardapio pratos;
 	
-	Cardapio(RepositorioCardapio rep){
+	public Cardapio(RepositorioCardapio rep){
 		this.pratos = rep;
 	}
 	
@@ -22,6 +25,14 @@ public class Cardapio {
 			pratos.removerPrato(prato);
 		} else {
 			throw new RuntimeException("Nao cadastrado");
+		}
+	}
+	
+	public void atualizar(int identificador, String nome, double preco, Ingrediente[] ingredientes) {
+		if(!pratos.existePrato(nome)) {
+			pratos.atualizarPrato(identificador, nome, preco, ingredientes);
+		} else {
+			throw new RuntimeException("O produto não existe");
 		}
 	}
 	

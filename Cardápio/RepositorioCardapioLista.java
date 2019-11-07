@@ -1,8 +1,12 @@
+package Cardápio;
+
+import Estoque.Ingrediente;
+
 public class RepositorioCardapioLista implements RepositorioCardapio {
 	private Prato prato;
 	private RepositorioCardapioLista proximo;
 
-	RepositorioCardapioLista() {
+	public RepositorioCardapioLista() {
 		this.prato = null;
 		this.proximo = null;
 	}
@@ -30,9 +34,9 @@ public class RepositorioCardapioLista implements RepositorioCardapio {
 	}
 
 	public String listarPrato() {
-		String retorno = "-------- CardÃ¡pio --------" + "\n";
+		String retorno = "-------- Cardápio --------" + "\n";
 		while (this.prato != null) {
-			retorno = retorno + "Nome: " + this.prato.getNome() + "\n" + "Valor: " + this.prato.getPreco() + "\n"
+			retorno = retorno + "Nome: " + this.prato.getNome() + "\n" + "Preço: " + this.prato.getPreco() + "\n"
 					+ "Ingredientes: " + listarIngredientes(this.prato) + "\n" + "--------------------------" + "\n";
 			this.prato = this.proximo.prato;
 			this.proximo = this.proximo.proximo;
@@ -74,8 +78,20 @@ public class RepositorioCardapioLista implements RepositorioCardapio {
 		}
 	}
 
-	public void atualizarPrato(Prato prato) {
+	public void atualizarPrato(int identificador, String nome, double preco, Ingrediente[] ingredientes) {
+		
+		if (this.prato != null) {
+			if (this.prato.getIdentificador() == identificador) {
+				this.prato.setNome(nome);
+				this.prato.setPreco(preco);
+				this.prato.setIngrediente(ingredientes);
+			} else {
+				this.proximo.atualizarPrato(identificador, nome, preco, ingredientes);
+			}
+		}
 		
 	}
+
+	
 
 }
