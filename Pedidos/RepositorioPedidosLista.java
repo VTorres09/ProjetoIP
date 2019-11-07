@@ -1,3 +1,4 @@
+package Pedidos;
 public class RepositorioPedidosLista implements RepositorioPedidos{
 	private Pedidos pedido;
 	private RepositorioPedidosLista prox;
@@ -40,10 +41,10 @@ public class RepositorioPedidosLista implements RepositorioPedidos{
 	public String listar() {
 		String tudo = "";
 		if(this.pedido == null) {
-			return tudo;
+			tudo += "";
 		} else {
 			tudo += this.pedido.toString() + "\n";
-			return tudo;
 		}
+		return tudo;
 	}
 }
