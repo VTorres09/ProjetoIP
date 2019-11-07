@@ -1,9 +1,12 @@
+package Card·pio;
+
+import Estoque.Ingrediente;
 
 public class RepositorioCardapioArray implements RepositorioCardapio {
 	private Prato[] arrayPratos;
 	private int cont;
 
-	RepositorioCardapioArray(int tamanho) {
+	public RepositorioCardapioArray(int tamanho) {
 		this.arrayPratos = new Prato[tamanho];
 		this.cont = 0;
 	}
@@ -26,9 +29,9 @@ public class RepositorioCardapioArray implements RepositorioCardapio {
 	}
 
 	public String listarPrato() {
-		String retorno = "-------- Card√°pio --------" + "\n";
+		String retorno = "-------- Card·pio --------" + "\n";
 		for (int i = 0; i < cont; i++) {
-			retorno += "Nome: " + arrayPratos[i].getNome() + "\n" + "Pre√ßo: " + arrayPratos[i].getPreco() + "\n"
+			retorno += "Nome: " + arrayPratos[i].getNome() + "\n" + "PreÁo: " + arrayPratos[i].getPreco() + "\n"
 					+ "Ingredientes: " + listarIngredientes(arrayPratos[i]) + "\n" + "--------------------------" + "\n";
 		}
 		return retorno;
@@ -63,8 +66,15 @@ public class RepositorioCardapioArray implements RepositorioCardapio {
 		return retorno;
 	}
 
-	public void atualizarPrato(Prato prato) {
-
+	public void atualizarPrato(int identificador, String nome, double preco, Ingrediente[] ingredientes) {
+		for (int i = 0; i < cont; i++) {
+			if (arrayPratos[i].getIdentificador() == identificador) {
+				arrayPratos[i].setNome(nome);
+				arrayPratos[i].setPreco(preco);
+				arrayPratos[i].setIngrediente(ingredientes);
+			}
+		}
+		
 	}
 
 }

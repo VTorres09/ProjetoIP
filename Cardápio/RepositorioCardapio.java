@@ -1,3 +1,7 @@
+package Cardápio;
+
+import Estoque.Ingrediente;
+
 public interface RepositorioCardapio {
 	void adicionarPrato(Prato prato);
 
@@ -7,7 +11,7 @@ public interface RepositorioCardapio {
 
 	boolean existePrato(String nomePrato);
 	
-	void atualizarPrato(Prato prato);
+	void atualizarPrato(int identificador, String nome, double preco, Ingrediente[] ingredientes);
 	
 	String listarIngredientes(Prato prato);
 		
