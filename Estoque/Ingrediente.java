@@ -19,6 +19,7 @@ public class Ingrediente {
 		this.identificador = identificador;
 //erro ao tentar iniciar o ingrediente sem um nome e pensar em outras coisas para erro
 	}
+	
 	/*
 	//Esse codigo deve ser colococado no lugar onde o gerador for criado
 	public String gerarIdentificador() {
