@@ -1,6 +1,6 @@
 package Pedidos;
 
-import Cardápio.Prato;
+import Pratos.Prato;
 
 public class Pedidos {
 	private Prato pedido;

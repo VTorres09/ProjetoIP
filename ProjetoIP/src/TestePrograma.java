@@ -1,12 +1,12 @@
 import java.util.*;
 
-import Cardápio.Cardapio;
-import Cardápio.Prato;
-import Cardápio.PratoJaCadastradoException;
-import Cardápio.PratoNaoCadastradoException;
-import Cardápio.RepositorioCardapioArray;
-import Cardápio.RepositorioCardapioLista;
-import Estoque.Ingrediente;
+import Ingredientes.Ingrediente;
+import Pratos.Cardapio;
+import Pratos.Prato;
+import Pratos.PratoJaCadastradoException;
+import Pratos.PratoNaoCadastradoException;
+import Pratos.RepositorioCardapioArray;
+import Pratos.RepositorioCardapioLista;
 
 
 public class TestePrograma {
