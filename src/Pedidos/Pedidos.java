@@ -14,7 +14,7 @@ public class Pedidos {
 	}
 
 	public int getQuantidadePratos() {
-		return quantidadePrssssssatos;
+		return quantidadePratos;
 	}
 
 	public void setQuantidadePratos(int quantidadePratos ) {
