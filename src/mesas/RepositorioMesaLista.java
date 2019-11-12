@@ -50,11 +50,7 @@ public class RepositorioMesaLista implements RepositorioMesa {
 
         }
     }
-	@Override
-	public void listar() {
-		// TODO Auto-generated method stub
-		
-	}
+	
 	
 	
 

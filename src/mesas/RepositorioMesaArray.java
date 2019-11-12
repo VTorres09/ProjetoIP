@@ -52,10 +52,5 @@ public class RepositorioMesaArray implements RepositorioMesa{
 
     }
 
-	@Override
-	public void listar() {
-		// TODO Auto-generated method stub
-		
-	}
 
 }
