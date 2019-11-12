@@ -40,13 +40,13 @@ public class RepositorioMesaLista implements RepositorioMesa {
 
     }
 
-    public void atualizarMesa(int numeroMesa, Funcionario funcionario, RepositorioPedidos pedidos ){
-        if (this.mesa.getNum()== numeroMesa){
+    public void atualizarMesa(Mesa mesa, int numeroMesa, Funcionario funcionario, RepositorioPedidos pedidos ){
+        if (this.mesa.getNum()== mesa.getNum()){
             this.mesa.setNumero(numeroMesa);
             this.mesa.setFuncionario(funcionario);
             this.mesa.setRepPedidos(pedidos);
         }else {
-            this.proximo.atualizarMesa(numeroMesa, funcionario, pedidos);
+            this.proximo.atualizarMesa(mesa,numeroMesa, funcionario, pedidos);
 
         }
     }
@@ -55,11 +55,7 @@ public class RepositorioMesaLista implements RepositorioMesa {
 		// TODO Auto-generated method stub
 		
 	}
-	@Override
-	public boolean existeMesa(int numeroMesa) {
-		// TODO Auto-generated method stub
-		return false;
-	}
+	
 	
 
 
