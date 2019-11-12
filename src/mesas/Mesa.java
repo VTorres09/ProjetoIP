@@ -1,8 +1,8 @@
 package mesas;
 
 
-import Funcionarios.Funcionario;
-import Pedidos.RepositorioPedidos;
+import funcionarios.Funcionario;
+import pedidos.RepositorioPedidos;
 
 
 public class Mesa {
