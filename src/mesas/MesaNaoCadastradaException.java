@@ -1,4 +1,4 @@
-package Mesas;
+package mesas;
 
 public class MesaNaoCadastradaException extends Exception {
 	public MesaNaoCadastradaException() {

@@ -1,4 +1,4 @@
-package Mesas;
+package mesas;
 
 
 import Funcionarios.Funcionario;

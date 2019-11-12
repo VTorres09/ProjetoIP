@@ -1,4 +1,4 @@
-package Mesas;
+package mesas;
 
 import Funcionarios.Funcionario;
 import Pedidos.RepositorioPedidos;
@@ -50,11 +50,7 @@ public class RepositorioMesaLista implements RepositorioMesa {
 
         }
     }
-	@Override
-	public void listar() {
-		// TODO Auto-generated method stub
-		
-	}
+	
 	
 	
 
