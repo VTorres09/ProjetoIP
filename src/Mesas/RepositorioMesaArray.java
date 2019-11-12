@@ -31,19 +31,19 @@ public class RepositorioMesaArray implements RepositorioMesa{
 
     
 
-    public boolean existeMesa(int numeroMesa) {
+    public boolean existeMesa(Mesa mesa) {
         boolean existe = false;
         for (int i = 0; i < count; i++) {
-            if (arrayMesa[i].getNum()== numeroMesa) {
+            if (arrayMesa[i].getNum()== mesa.getNum()) {
                 existe = true;
             }
         }
         return existe;
     }
 
-    public void atualizarMesa(int numeroMesa, Funcionario funcionario, RepositorioPedidos pedidos ) {
+    public void atualizarMesa(Mesa mesa, int numeroMesa, Funcionario funcionario, RepositorioPedidos pedidos ) {
         for (int i = 0; i < count; i++) {
-            if (arrayMesa[i].getNum() == numeroMesa) {
+            if (arrayMesa[i].getNum() == mesa.getNum()) {
                 arrayMesa[i].setNumero(numeroMesa);
                 arrayMesa[i].setFuncionario(funcionario);
                 arrayMesa[i].setRepPedidos(pedidos);
