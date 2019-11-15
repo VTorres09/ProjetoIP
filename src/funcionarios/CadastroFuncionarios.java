@@ -3,6 +3,11 @@ package funcionarios;
 
 public class CadastroFuncionarios {
 	private RepositorioFuncionarios colecaoFuncionarios;
+	
+	
+	public CadastroFuncionarios(RepositorioFuncionarios repFuncionarios) {
+		this.colecaoFuncionarios = repFuncionarios;
+	}
 
 	public String listarFuncionarios() throws NaoHaFuncionariosException {	
 		if(colecaoFuncionarios.listarFuncionarios("").equals("")) {

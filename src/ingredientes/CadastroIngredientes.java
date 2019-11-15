@@ -3,8 +3,8 @@ package ingredientes;
 public class CadastroIngredientes {
 	private RepositorioIngredientes estoque;
 
-	public CadastroIngredientes(RepositorioIngredientesLista rep) {
-		this.estoque = rep;
+	public CadastroIngredientes(RepositorioIngredientes repIngredientes) {
+		this.estoque = repIngredientes;
 	}
 	//Comentar o que cada metodo faz
 	//Melhorar a descrição dos erros

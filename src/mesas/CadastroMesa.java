@@ -1,10 +1,15 @@
 package mesas;
 
 import funcionarios.Funcionario;
+import ingredientes.RepositorioIngredientes;
 import pedidos.RepositorioPedidos;
 
 public class CadastroMesa {
 	private RepositorioMesa repositorio;
+	
+	public CadastroMesa(RepositorioMesa repMesas){
+		this.repositorio = repMesas;
+	}
 	
 	public void cadastrar(Mesa mesa) throws MesaJaCadastradaException {
 		if (!repositorio.existeMesa(mesa)) {
