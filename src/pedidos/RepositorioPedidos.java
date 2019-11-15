@@ -6,4 +6,5 @@ public interface RepositorioPedidos {
 	void atualizar(Pedidos pedido, int novaQuantidade);
 	String listar(); //metodo "procurar"
 	boolean verificar(Pedidos pedido);
+	Pedidos procurar(Pedidos pedido) throws PedidoNaoExistenteException;
 }

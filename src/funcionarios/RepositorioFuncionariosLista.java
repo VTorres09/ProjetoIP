@@ -4,7 +4,7 @@ public class RepositorioFuncionariosLista implements RepositorioFuncionarios {
 	private Funcionario funcionario;
 	private RepositorioFuncionariosLista prox;
 
-	RepositorioFuncionariosLista() {
+	public RepositorioFuncionariosLista() {
 		this.funcionario = null;
 		this.prox = null;
 	}

@@ -1,14 +1,13 @@
 package pedidos;
 
 public class CadastroPedidos {
-	private static RepositorioPedidos repositorio;
+	private RepositorioPedidos repositorio;
 
-	public CadastroPedidos(String tipo) {
-		if(tipo.equals("Lista")) this.repositorio = new RepositorioPedidosLista();
-		if(tipo.equals("Array")) this.repositorio = new RepositorioPedidosArray();
+	public CadastroPedidos(RepositorioPedidos repPedidos) {
+		this.repositorio = repPedidos;
 	}
 
-	public static void cadastrar(Pedidos pedido) throws PedidoJaCadastradoException {
+	public void cadastrar(Pedidos pedido) throws PedidoJaCadastradoException {
 		if (repositorio.verificar(pedido)) {
 			throw new PedidoJaCadastradoException();
 			
@@ -33,7 +32,7 @@ public class CadastroPedidos {
 			throw new CadastroNaoRealizadoException();
 		}
 	}
-   static String imprimir() throws NaoExistemPedidosException{
+   public String imprimir() throws NaoExistemPedidosException{
 	   if(repositorio.listar().contentEquals("")) {
 	    throw new NaoExistemPedidosException();
 	   } else {
