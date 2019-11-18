@@ -1,4 +1,4 @@
-package Ingredientes;
+package ingredientes;
 public class Ingrediente {
 	private String nome;
 	private int qtd;
@@ -8,7 +8,7 @@ public class Ingrediente {
 	private String validade;
 	private String identificador;
 
-	public Ingrediente(String nome, int qtd, String tipoEstoque, String fornecedor, int preco, String validade,
+	public Ingrediente(String nome, int qtd, String tipoEstoque, String fornecedor, double preco, String validade,
 			String identificador) {
 		this.nome = nome;
 		this.qtd = qtd;

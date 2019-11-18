@@ -15,7 +15,6 @@ public class Programa {
 		NaoHaFuncionariosException,
 		IngredienteJaCadastradoException,
 		IngredienteNaoCadastradoException,
-		NaoExistemIngredientesException,
 		MesaJaCadastradaException,
 		MesaNaoCadastradaException,
 		CadastroNaoRealizadoException,
@@ -37,9 +36,7 @@ public class Programa {
 		
 		App fachada = new App(repositorioIngredientesLista, repositorioPratosLista, repositorioMesaLista, repositorioPedidosLista, repositorioFuncionariosLista);
 		
-		// testando ingredientes
-		Ingrediente cafe = new Ingrediente("Cafe (Tres Coracoes)", 30, "Pacotes", "Tres Coracoes LTDA", 20.00, "30/09/2021", "01");
-		CadastroIngredientes.inserir(cafe);
+
 		
 	}
 
