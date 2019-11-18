@@ -1,3 +1,4 @@
+
 package pratos;
 
 import ingredientes.Ingrediente;
@@ -43,3 +44,6 @@ public class Prato {
 		this.ingredientes = ingredientes;
 	}
 }
+
+}
+

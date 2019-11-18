@@ -1,3 +1,4 @@
+
 package ingredientes;
 
 public class CadastroIngredientes {
@@ -46,6 +47,5 @@ public class CadastroIngredientes {
 	public RepositorioIngredientes getIngredientes() {
 		return this.estoque;
 	}
-	
 	
 }
