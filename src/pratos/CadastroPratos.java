@@ -9,10 +9,6 @@ public class CadastroPratos {
 		this.pratos = rep;
 	}
 	
-	public RepositorioPratos getPratos() {
-		return this.pratos;
-	}
-	
 	public void cadastrar(Prato prato) throws PratoJaCadastradoException {
 		String nomePrato = prato.getNome();
 		if(!pratos.existePrato(nomePrato)) {

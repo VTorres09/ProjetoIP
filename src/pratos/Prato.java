@@ -20,16 +20,16 @@ public class Prato {
 		this.preco = preco;	
 	}
 	
-	public String getNome() {
+	String getNome() {
 		return this.nome;
 	}
-	public double getPreco() {
+	double getPreco() {
 		return this.preco;
 	}
-	public Ingrediente[] getIngredientes() {
+	Ingrediente[] getIngredientes() {
 		return this.ingredientes;
 	}
-	public int getIdentificador() {
+	int getIdentificador() {
 		return this.identificador;
 	}
 	
