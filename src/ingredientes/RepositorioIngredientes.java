@@ -1,13 +1,10 @@
-package ingredientes;
+package Ingredientes;
 
 public interface RepositorioIngredientes {
+	//Metodos basicos
 	void inserir(Ingrediente ingrediente);
 	void remover(String identificador);
 	void atualizar(Ingrediente ingrediente);
+	Ingrediente procurar(String identificador);
 	boolean existe(String identificador);
-	String listarIngrediente(String identificador);
-	String listarEstoque();
-	boolean existe(String nome, String fornecedor, String validade);
-	String getIdentificador(String nome, String fornecedor, String validade);
-	boolean estoqueVazio();
 }
