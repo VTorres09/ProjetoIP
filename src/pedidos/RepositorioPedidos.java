@@ -3,8 +3,8 @@ package pedidos;
 public interface RepositorioPedidos {
 	void inserir(Pedidos pedido);
 	void remover(Pedidos pedido);
-	void atualizar(Pedidos pedido, int novaQuantidade);
+	void atualizar(Pedidos pedido);
 	String listar(); //metodo "procurar"
-	boolean verificar(Pedidos pedido);
+	boolean existe(Pedidos pedido);
 	Pedidos procurar(Pedidos pedido) throws PedidoNaoExistenteException;
 }

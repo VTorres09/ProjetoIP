@@ -1,3 +1,4 @@
+
 package pratos;
 
 import ingredientes.Ingrediente;
@@ -39,12 +40,16 @@ public class CadastroPratos {
 	public String listar() {
 		return pratos.listarPrato();
 	}
-	
+
 	public RepositorioPratos getPratos() {
+		// TODO Auto-generated method stub
 		return this.pratos;
 	}
+	
+	
 	//completar com outras funcionalidades de cardapio
 	
 	
 	
 }
+

@@ -8,7 +8,7 @@ public class CadastroPedidos {
 	}
 
 	public void cadastrar(Pedidos pedido) throws PedidoJaCadastradoException {
-		if (repositorio.verificar(pedido)) {
+		if (repositorio.existe(pedido)) {
 			throw new PedidoJaCadastradoException();
 			
 		} else {
@@ -16,28 +16,31 @@ public class CadastroPedidos {
 		}
 	}
 
-	void cancelar(Pedidos pedido)  throws PedidoNaoExistenteException {
-		if(repositorio.verificar(pedido)) {
+	public void remover(Pedidos pedido)  throws PedidoNaoExistenteException {
+		if(repositorio.existe(pedido)) {
 			repositorio.remover(pedido);
 		} else {
 			throw new PedidoNaoExistenteException();
 		}
 
 	}
-    
-	void alterar(Pedidos pedido, int novaQuantidade) throws CadastroNaoRealizadoException {
-		if(repositorio.verificar(pedido)) {
-			repositorio.atualizar(pedido, novaQuantidade);
+    public void atualizar(Pedidos pedido) throws PedidoNaoExistenteException  {
+    	if(repositorio.existe(pedido)) {
+			repositorio.atualizar(pedido);
 		} else {
-			throw new CadastroNaoRealizadoException();
+			throw new PedidoNaoExistenteException();
 		}
-	}
+    }
+	
    public String imprimir() throws NaoExistemPedidosException{
 	   if(repositorio.listar().contentEquals("")) {
 	    throw new NaoExistemPedidosException();
 	   } else {
 		  return repositorio.listar();
 	   }
+   }
+   public RepositorioPedidos getPedidos() {
+	   return this.repositorio;
    }
 
 }

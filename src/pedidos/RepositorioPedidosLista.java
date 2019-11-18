@@ -1,4 +1,7 @@
 package pedidos;
+
+import ingredientes.Ingrediente;
+
 public class RepositorioPedidosLista implements RepositorioPedidos{
 	private Pedidos pedido;
 	private RepositorioPedidosLista prox;
@@ -7,11 +10,11 @@ public class RepositorioPedidosLista implements RepositorioPedidos{
 		this.pedido = null;
 		this.prox = null;
 	}
-	public boolean verificar(Pedidos pedido) {
+	public boolean existe(Pedidos pedido) {
 		if(this.pedido == pedido) {
 			return true;
 		} else if (this.prox != null) {
-			return this.prox.verificar(pedido);
+			return this.prox.existe(pedido);
 		} else {
 			return false;
 		}
@@ -32,10 +35,11 @@ public class RepositorioPedidosLista implements RepositorioPedidos{
 			this.prox.remover(pedido);
 		}
 	}
-	public void atualizar(Pedidos pedido,int novaQuantidade) {
-		if(this.pedido == pedido) {
-			pedido.setQuantidadePratos(novaQuantidade);
-		}
+	public void atualizar(Pedidos pedidos) {
+		if (this.pedido.getIdentificador().equals(pedidos.getIdentificador())) {
+			this.pedido = pedidos;
+		} else
+			this.prox.atualizar(pedidos);
 	}
 
 	public String listar() {
