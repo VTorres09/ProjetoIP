@@ -1,8 +1,11 @@
 package pedidos;
+
+import ingredientes.Ingrediente;
+
 public class RepositorioPedidosArray implements RepositorioPedidos {
 	Pedidos arrayPedido[] = new Pedidos[100];
 	
-    public boolean verificar(Pedidos pedido) {
+    public boolean existe(Pedidos pedido) {
     	for(int i =0; i<100; i++) {
     		if(arrayPedido[i]!=null && arrayPedido[i].equals(pedido)) {
     			return true;
@@ -26,10 +29,10 @@ public class RepositorioPedidosArray implements RepositorioPedidos {
 			}
 		}
 	}
-	public void atualizar(Pedidos pedido, int novaQuantidade) {
+	public void atualizar(Pedidos pedido) {
 		for(int i=0; i<100; i++) {
 			if(!arrayPedido[i].equals(null) && arrayPedido[i] == pedido) {
-				pedido.setQuantidadePratos(novaQuantidade);
+				arrayPedido[i] = pedido;
 			}
 		}
 	}

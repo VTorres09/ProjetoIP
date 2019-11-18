@@ -42,6 +42,10 @@ public class CadastroIngredientes {
 		else
 			throw new IngredienteNaoCadastradoException();
 	}
+
+	public RepositorioIngredientes getIngredientes() {
+		return this.estoque;
+	}
 	
 	
 }
