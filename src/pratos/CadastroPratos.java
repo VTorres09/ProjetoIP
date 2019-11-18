@@ -40,7 +40,9 @@ public class CadastroPratos {
 		return pratos.listarPrato();
 	}
 	
-	
+	public RepositorioPratos getPratos() {
+		return this.pratos;
+	}
 	//completar com outras funcionalidades de cardapio
 	
 	
