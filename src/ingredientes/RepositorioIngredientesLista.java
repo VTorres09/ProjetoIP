@@ -1,4 +1,4 @@
-package Ingredientes;
+package ingredientes;
 
 public class RepositorioIngredientesLista implements RepositorioIngredientes {
 	private Ingrediente ingrediente;

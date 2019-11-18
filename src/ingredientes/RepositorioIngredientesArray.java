@@ -1,4 +1,4 @@
-package Ingredientes;
+package ingredientes;
 
 public class RepositorioIngredientesArray implements RepositorioIngredientes {
 	private Ingrediente[] estoque;
