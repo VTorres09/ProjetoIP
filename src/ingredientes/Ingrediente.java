@@ -1,4 +1,4 @@
-package ingredientes;
+package Ingredientes;
 public class Ingrediente {
 	private String nome;
 	private int qtd;
@@ -17,32 +17,7 @@ public class Ingrediente {
 		this.preco = preco;
 		this.validade = validade;
 		this.identificador = identificador;
-//erro ao tentar iniciar o ingrediente sem um nome e pensar em outras coisas para erro
 	}
-	
-	/*
-	//Esse codigo deve ser colococado no lugar onde o gerador for criado
-	public String gerarIdentificador() {
-	
-		// gerar string aleatoria e checar se o identificador existe
-		String identificador = "";
-		int aux;
-
-		for (int contador = 0; contador < 5; contador++) {
-			if (contador == 1 || contador == 3) {
-				aux = (int) Math.round(Math.random() * 10);
-				if (aux % 3 == 0)
-					identificador += "B";
-				else if (aux % 2 == 0)
-					identificador += "A";
-				else
-					identificador += "C";
-			} else
-				identificador += (int) Math.floor(Math.random() * 10) + "";
-		}
-		return identificador;
-	}
-	*/
 	
 	public String getNome() {
 		return nome;
@@ -94,5 +69,8 @@ public class Ingrediente {
 
 	public String getIdentificador() {
 		return identificador;
+	}
+	public void setIdentificador(String identificador) {
+		this.identificador = identificador;
 	}
 }
