@@ -24,8 +24,34 @@ public class App {
 		
 	}
 	
-	//programar os metodos novamente para chamar na classe programa
+	// Pratos
+
+	public void cadastrarPrato(Prato prato) throws PratoJaCadastradoException {
+
+		if (this.pratos.getPratos().existePrato(prato.getNome())) {
+			throw new PratoJaCadastradoException();
+		} else {
+			this.pratos.cadastrar(prato);
+		}
+	}
+
+	public void removerPrato(Prato prato) throws PratoNaoCadastradoException {
+
+		if (this.pratos.getPratos().existePrato(prato.getNome())) {
+			this.pratos.remover(prato);
+		} else {
+			throw new PratoNaoCadastradoException();
+		}
+	}
 	
+	
+	public void atualizarPrato(Prato prato) {
+		if (this.pratos.getPratos().existePrato(prato.getNome())) {
+			this.pratos.atualizar(prato.getIdentificador(), prato.getNome(), prato.getPreco(), prato.getIngredientes());
+		} else {
+			throw new PratoNaoCadastradoException();
+		}	
+	}
 	
 	
 }
