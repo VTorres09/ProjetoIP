@@ -80,7 +80,7 @@ public class App {
 	}
 
 	// mesas
-
+	
 	public void cadastrarMesa(Mesa mesa) throws MesaJaCadastradaException {
 		if (this.mesas.getMesas().existeMesa(mesa)) {
 			throw new MesaJaCadastradaException();
@@ -107,11 +107,11 @@ public class App {
 
 	//pedidos
 
-	public void fazerPedido(Pedidos pedido) throws PedidoJaCadastradoException {
+	public void fazerPedido(Pedidos pedido) throws PedidoJaCadastradoException, IngredientesInsuficientesException{
 		if (this.pedidos.getPedidos().existe(pedido)) {
 			throw new PedidoJaCadastradoException();
-		} else {
-			this.pedidos.cadastrar(pedido);
+		} else {					
+			this.pedidos.cadastrar(pedido);	
 		}
 
 	}

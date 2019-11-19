@@ -25,7 +25,7 @@ public class Pedidos {
 		return identificador;
 	}
 
-	public Prato getPedido() {
+	public Prato getPrato() {
 		return this.pedido;
 	}
 
