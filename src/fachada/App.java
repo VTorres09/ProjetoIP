@@ -106,7 +106,15 @@ public class App {
 	public String pedirConta(Mesa mesa) throws MesaNaoCadastradaException {
 		if (this.mesas.getMesas().existeMesa(mesa)) {
 			double consumo = (mesa.getPedidos().consumoMesa()) * (0.1);
-			return "Seu consumo foi de: R$ " + consumo + ". (A taxa de 10% opcional esta inclusa).";
+			//cria um novo repositorio para mesa
+			if(mesa.getPedidos() instanceof RepositorioPedidosArray) {
+				RepositorioPedidosArray novoRep = new RepositorioPedidosArray();
+				mesa.setRepPedidos(novoRep);
+			} else if(mesa.getPedidos() instanceof RepositorioPedidosLista) {
+				RepositorioPedidosLista novoRep = new RepositorioPedidosLista();
+				mesa.setRepPedidos(novoRep);
+			}
+				return "Seu consumo foi de: R$ " + consumo + ". (A taxa de 10% opcional esta inclusa).";
 		} else {
 			throw new MesaNaoCadastradaException();
 		}
@@ -143,5 +151,33 @@ public class App {
 	}
 	
 	//funcionarios
+	
+	public void cadastrarFuncionario(Funcionario funcionario) throws FuncionarioJaCadastradoException{
+		if (this.funcionarios.getFuncionarios().existeFuncionario(funcionario)) {
+			throw new FuncionarioJaCadastradoException();
+		} else {					
+			this.funcionarios.cadastrar(funcionario);			
+		}
+
+	}
+	public void removerFuncionario(Funcionario funcionario) throws FuncionarioNaoExistenteException{
+		if (this.funcionarios.getFuncionarios().existeFuncionario(funcionario)) {
+			this.funcionarios.remover(funcionario);	
+		} else {					
+			throw new FuncionarioNaoExistenteException();
+		}
+
+	}
+	
+	public void atualizarFuncionario(Funcionario funcionario) throws FuncionarioNaoExistenteException{
+		if (this.funcionarios.getFuncionarios().existeFuncionario(funcionario)) {
+			
+			this.funcionarios.atualizarFuncionario(funcionario,funcionario);	
+		} else {					
+			throw new FuncionarioNaoExistenteException();
+		}
+
+	}
+	
 
 }
