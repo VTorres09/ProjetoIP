@@ -41,5 +41,8 @@ public class CadastroMesa {
 			throw new MesaNaoCadastradaException();
 		}
 	}
+	public RepositorioMesa getMesas() {
+		return this.repositorio;
+	}
 
 }
