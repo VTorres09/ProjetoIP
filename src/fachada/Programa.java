@@ -109,7 +109,7 @@ public class Programa {
 
 					String nomePrato;
 					double precoPrato;
-					Ingrediente[] ingredientesPrato = new Ingrediente[10];
+					String[] ingredientesPrato = new String[10];
 					int identificadorPrato;
 
 					if (operacao.equals("1")) {
@@ -124,37 +124,14 @@ public class Programa {
 
 						for (String fim = ""; !fim.equals("fim");) {
 							int contador = 0;
-							String nomeIngrediente;
-							int qtdIngrediente;
-							String tipoEstoqueIngrediente;
-							String fornecedorIngrediente;
-							double precoIngrediente;
-							String validadeIngrediente;
 							String identificadorIngrediente;
 
-							System.out.println("Digite o nome do ingrediente");
-							nomeIngrediente = in.nextLine();
-							System.out.println("Agora digite a quantidade desse ingrediente:");
-							qtdIngrediente = in.nextInt();
-							in.nextLine();
-							System.out.println("Agora digite o fornecedor desse ingrediente:");
-							fornecedorIngrediente = in.nextLine();
-							System.out.println("Agora digite o tipo de estocagem desse ingrediente:");
-							tipoEstoqueIngrediente = in.nextLine();
-							System.out.println("Agora digite o preço do ingrediente:");
-							precoIngrediente = in.nextDouble();
-							in.nextLine();
-							System.out.println("Agora digite a validade desse ingrediente:");
-							validadeIngrediente = in.nextLine();
-							System.out.println("Agora digite um identificador para seu ingrediente:");
+							System.out.println("Digite o identificador do ingrediente:");
 							identificadorIngrediente = in.nextLine();
+							//Botar existe e Procurar
 							System.out.println("fim?");
 							fim = in.nextLine();
-
-							Ingrediente ingrediente = new Ingrediente(nomeIngrediente, qtdIngrediente,
-									tipoEstoqueIngrediente, fornecedorIngrediente, precoIngrediente,
-									validadeIngrediente, identificadorIngrediente);
-							ingredientesPrato[contador] = ingrediente;
+							ingredientesPrato[contador] = identificadorIngrediente;							
 							contador++;
 						}
 

@@ -28,6 +28,7 @@ public class App {
 	// Pratos
 
 	public void cadastrarPrato(Prato prato) throws PratoJaCadastradoException {
+		//Adicionar condição de existencia de ingredientes
 		if (this.pratos.getPratos().existePrato(prato.getNome())) {
 			throw new PratoJaCadastradoException();
 		} else {
@@ -36,6 +37,7 @@ public class App {
 	}
 
 	public void removerPrato(Prato prato) throws PratoNaoCadastradoException {
+		//Usar Identificador
 		if (this.pratos.getPratos().existePrato(prato.getNome())) {
 			this.pratos.remover(prato);
 		} else {
@@ -88,6 +90,7 @@ public class App {
 	}
 
 	public void removerMesa(Mesa mesa) throws MesaNaoCadastradaException {
+		//Usar Identificador
 		if (this.mesas.getMesas().existeMesa(mesa)) {
 			this.mesas.remover(mesa);		
 		} else {
@@ -132,21 +135,21 @@ public class App {
 
 	}
 
-	public void cancelarPedido(Pedidos pedido, Mesa mesa) throws PedidoNaoCadastradoException {
+	public void cancelarPedido(Pedidos pedido, Mesa mesa) throws NaoExistemPedidosException {
 		if (mesa.getPedidos().existe(pedido)) {
 			//pedido removido no repositorio da mesa
 			mesa.getPedidos().remover(pedido);
 		} else {
-			throw new PedidoNaoCadastradoException();
+			throw new NaoExistemPedidosException();
 		}
 	}
 
-	public void atualizarPedido(Pedidos pedido, Mesa mesa) throws PedidoNaoCadastradoException {
+	public void atualizarPedido(Pedidos pedido, Mesa mesa) throws NaoExistemPedidosException {
 		if (mesa.getPedidos().existe(pedido)) {
 			//pedido atualizado no repositorio da mesa
 			mesa.getPedidos().atualizar(pedido);
 		} else {
-			throw new PedidoNaoCadastradoException();
+			throw new NaoExistemPedidosException();
 		}
 	}
 	
