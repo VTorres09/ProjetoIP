@@ -53,4 +53,21 @@ public class RepositorioMesaArray implements RepositorioMesa{
     }
 
 
+    public int quantidadeMesas(Funcionario funcionario){
+	int quantidade=0;	
+	for (int i =0; i<count;i++){
+	    if (arrayMesa[i].getFuncionario == funcionario){
+	    quantidade++;
+
+	    }
+
+	
+	}
+	return quantidade;
+
+
+    
+    }
+
+
 }
