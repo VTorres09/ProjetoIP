@@ -80,7 +80,7 @@ public class App {
 	}
 
 	// mesas
-
+	
 	public void cadastrarMesa(Mesa mesa) throws MesaJaCadastradaException {
 		if (this.mesas.getMesas().existeMesa(mesa)) {
 			throw new MesaJaCadastradaException();
@@ -108,10 +108,20 @@ public class App {
 	//pedidos
 
 	public void fazerPedido(Pedidos pedido) throws PedidoJaCadastradoException {
+		boolean disponibilidade = true;
 		if (this.pedidos.getPedidos().existe(pedido)) {
 			throw new PedidoJaCadastradoException();
-		} else {
+		} else {			
+			for(int i = 0; i<pedido.getPrato().getIngredientes().length; i++) {
+				if(pedido.getPrato().getIngredientes()[i].getQtd() == 0) {
+					disponibilidade = false;
+				}
+			}
+			if(disponibilidade) {
 			this.pedidos.cadastrar(pedido);
+			} else {
+				//erro?? ou mensagem??
+			}
 		}
 
 	}
