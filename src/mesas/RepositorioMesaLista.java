@@ -50,6 +50,23 @@ public class RepositorioMesaLista implements RepositorioMesa {
 
         }
     }
+
+    public int quantidadeMesas(Funcionario funcionario){
+	if (this.mesa != null && this.mesa.getFuncionario().getRg()== funcionario.getRg()){
+	     if (this.proximo!=null){
+		return 1 + this.proximo.quantidadeMesas(funcionario);
+	     }else{
+		return 1;
+	     }
+	}else if (this.proximo != null){
+		return 0+ this.proximo.quantidadeMesas(funcionario);
+	
+	}
+	return 0;
+
+
+
+    }
 	
 	
 	
