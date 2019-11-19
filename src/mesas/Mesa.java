@@ -20,6 +20,12 @@ public class Mesa {
 	public int getNum(){
 		return this.numero;
 	}
+	public Funcionario getFuncionario(){
+		return this.funcionario;
+	}
+	public RepositorioPedidos getPedidos() {
+		return this.pedidos;
+	}
 
 	public void setNumero(int num){
 		this.numero=num;

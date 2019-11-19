@@ -34,12 +34,15 @@ public class CadastroMesa {
 		return repositorio.existeMesa(mesa);
 	}
 	
-	public void atualizar(Mesa mesa ,int numeroMesa, Funcionario funcionario, RepositorioPedidos pedidos ) throws MesaNaoCadastradaException {
+	public void atualizar(Mesa mesa ,int numeroMesa, Funcionario funcionario, RepositorioPedidos pedidos) throws MesaNaoCadastradaException {
 		if (repositorio.existeMesa(mesa)) {
 			repositorio.atualizarMesa(mesa, numeroMesa, funcionario, pedidos);
 		}else {
 			throw new MesaNaoCadastradaException();
 		}
+	}
+	public RepositorioMesa getMesas() {
+		return this.repositorio;
 	}
 
 }

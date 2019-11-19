@@ -81,25 +81,37 @@ public class App {
 
 	// mesas
 
-	public void cadastrarMesa() {
-
-	}
-
-	public void removerMesa() {
-
-	}
-
-	public void atualizarMesa() {
-
-	}
-
-	// pedidos
-
-	public void fazerPedido(Pedidos pedido) {
-		if (this.pedidos.getPedidos().existe(pedido)) {
-			//decidir se vai ser possivel fazer pedidos iguais
+	public void cadastrarMesa(Mesa mesa) throws MesaJaCadastradaException {
+		if (this.mesas.getMesas().existeMesa(mesa)) {
+			throw new MesaJaCadastradaException();
 		} else {
+			this.mesas.cadastrar(mesa);
+		}
+	}
 
+	public void removerMesa(Mesa mesa) throws MesaNaoCadastradaException {
+		if (this.mesas.getMesas().existeMesa(mesa)) {
+			this.mesas.remover(mesa);		
+		} else {
+			throw new MesaNaoCadastradaException();
+		}
+	}
+
+	public void atualizarMesa(Mesa mesa) throws MesaNaoCadastradaException {
+		if (this.mesas.getMesas().existeMesa(mesa)) {
+			this.mesas.atualizar(mesa, mesa.getNum(), mesa.getFuncionario(), mesa.getPedidos());		
+		} else {
+			throw new MesaNaoCadastradaException();
+		}
+	}
+
+	//pedidos
+
+	public void fazerPedido(Pedidos pedido) throws PedidoJaCadastradoException {
+		if (this.pedidos.getPedidos().existe(pedido)) {
+			throw new PedidoJaCadastradoException();
+		} else {
+			this.pedidos.cadastrar(pedido);
 		}
 
 	}
@@ -120,6 +132,6 @@ public class App {
 		}
 	}
 	
-	//
+	//funcionarios
 
 }
