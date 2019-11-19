@@ -42,16 +42,6 @@ public class RepositorioPedidosLista implements RepositorioPedidos{
 		} else
 			this.prox.atualizar(pedidos);
 	}
-
-	public String listar() {
-		String tudo = "";
-		if(this.pedido == null) {
-			tudo += "";
-		} else {
-			tudo += this.pedido.toString() + "\n";
-		}
-		return tudo;
-	}
 	
 	public Pedidos procurar(Pedidos pedido) throws PedidoNaoCadastradoException {
 		if(this.pedido == pedido) {
@@ -63,7 +53,7 @@ public class RepositorioPedidosLista implements RepositorioPedidos{
 		}
 	}
 
-	public double consumoMesa() {
+	public double consumoMesa() throws NaoExistemPedidosException {
 		double conta = 0;
 		if(this.pedido == null) {
 			conta += 0;

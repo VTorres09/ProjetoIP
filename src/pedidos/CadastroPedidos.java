@@ -41,13 +41,6 @@ public class CadastroPedidos {
 		}
     }
 	
-   public String imprimir() throws NaoExistemPedidosException{
-	   if(repositorio.listar().contentEquals("")) {
-	    throw new NaoExistemPedidosException();
-	   } else {
-		  return repositorio.listar();
-	   }
-   }
    public RepositorioPedidos getPedidos() {
 	   return this.repositorio;
    }
@@ -58,8 +51,16 @@ public class CadastroPedidos {
 	   }
 	   return false;
    }
+   
    Pedidos procurar(Pedidos pedido) throws PedidoNaoCadastradoException {
 	   return repositorio.procurar(pedido);
+   }
+   
+   Double consumo() throws NaoExistemPedidosException {
+	   if(this.repositorio.equals(null)) {
+		   throw new NaoExistemPedidosException();
+	   }
+	   return repositorio.consumoMesa();
    }
 
 }

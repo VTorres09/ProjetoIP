@@ -5,9 +5,8 @@ import pratos.Prato;
 public interface RepositorioPedidos {
 	void inserir(Pedidos pedido);
 	void remover(Pedidos pedido);
-	void atualizar(Pedidos pedido);
-	String listar(); 
+	void atualizar(Pedidos pedido); 
 	boolean existe(Pedidos pedido);
 	Pedidos procurar(Pedidos pedido) throws PedidoNaoCadastradoException;
-	double consumoMesa();
+	double consumoMesa() throws NaoExistemPedidosException;
 }
