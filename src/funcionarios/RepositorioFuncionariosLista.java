@@ -27,12 +27,12 @@ public class RepositorioFuncionariosLista implements RepositorioFuncionarios {
 		}
 	}
 	
-	public void atualizarFuncionario(Funcionario antigo, Funcionario novo) {
-		if (this.funcionario == antigo) {
+	public void atualizarFuncionario(Funcionario novo) {
+		if (this.funcionario.getCpf().equals(novo.getCpf())) {
 			this.funcionario = novo;
 			this.prox = this.prox.prox;
 		} else {
-			this.prox.removerFuncionario(antigo);
+			this.prox.removerFuncionario(novo);
 		}
 	}
 

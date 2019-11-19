@@ -40,9 +40,14 @@ public class CadastroMesa {
 		}else {
 			throw new MesaNaoCadastradaException();
 		}
-	}
+	}	
 	public RepositorioMesa getMesas() {
 		return this.repositorio;
+	}
+	
+	//Metodo que tava no repositorio botei aqui tambem
+	public double quantidadeMesas(Funcionario funcionario) {
+		return this.repositorio.quantidadeMesas(funcionario);
 	}
 
 }

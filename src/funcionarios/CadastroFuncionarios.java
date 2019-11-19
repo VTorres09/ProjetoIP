@@ -35,9 +35,9 @@ public class CadastroFuncionarios {
 		}
 	}
 	
-	public void atualizar(Funcionario antigo, Funcionario novo) {
-		if(colecaoFuncionarios.existeFuncionario(antigo))
-		colecaoFuncionarios.atualizarFuncionario(antigo, novo);
+	public void atualizar(Funcionario novo) {
+		if(colecaoFuncionarios.existeFuncionario(novo))
+		colecaoFuncionarios.atualizarFuncionario(novo);
 	}
 	public RepositorioFuncionarios getFuncionarios() {
 		return this.colecaoFuncionarios;
