@@ -53,13 +53,13 @@ public class RepositorioPedidosLista implements RepositorioPedidos{
 		return tudo;
 	}
 	
-	public Pedidos procurar(Pedidos pedido) throws PedidoNaoExistenteException {
+	public Pedidos procurar(Pedidos pedido) throws PedidoNaoCadastradoException {
 		if(this.pedido == pedido) {
 			return pedido;
 		} else if (this.prox !=null){
 			return this.prox.procurar(pedido);
 		} else {
-			throw new PedidoNaoExistenteException();
+			throw new PedidoNaoCadastradoException();
 		}
 	}
 

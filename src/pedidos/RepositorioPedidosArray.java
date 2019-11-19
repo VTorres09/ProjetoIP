@@ -48,13 +48,13 @@ public class RepositorioPedidosArray implements RepositorioPedidos {
 		return tudo;
 	}
 
-	public Pedidos procurar(Pedidos pedido) throws PedidoNaoExistenteException {
+	public Pedidos procurar(Pedidos pedido) throws PedidoNaoCadastradoException {
 		for (int i = 0; i < 100 && arrayPedido[i] != null; i++) {
 			if (arrayPedido[i] == pedido) {
 				return pedido;
 			}
 		}
-		throw new PedidoNaoExistenteException();
+		throw new PedidoNaoCadastradoException();
 	}
 
 	public double consumoMesa() {
