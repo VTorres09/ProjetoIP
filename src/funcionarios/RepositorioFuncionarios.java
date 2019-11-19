@@ -5,7 +5,7 @@ public interface RepositorioFuncionarios {
 
 	public void removerFuncionario(Funcionario funcionario);
 	
-	public void atualizarFuncionario(Funcionario funcionario, Funcionario funcionario_);
+	public void atualizarFuncionario(Funcionario funcionario);
 
 	public boolean existeFuncionario(Funcionario funcionario);
 	

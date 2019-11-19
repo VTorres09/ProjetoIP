@@ -172,7 +172,7 @@ public class App {
 	public void atualizarFuncionario(Funcionario funcionario) throws FuncionarioNaoExistenteException{
 		if (this.funcionarios.getFuncionarios().existeFuncionario(funcionario)) {
 			
-			this.funcionarios.atualizarFuncionario(funcionario,funcionario);	
+			this.funcionarios.atualizar(funcionario);	
 		} else {					
 			throw new FuncionarioNaoExistenteException();
 		}

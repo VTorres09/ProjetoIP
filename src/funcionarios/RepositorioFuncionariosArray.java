@@ -38,11 +38,11 @@ public class RepositorioFuncionariosArray implements RepositorioFuncionarios {
 	}
 	
 	
-	public void atualizarFuncionario(Funcionario antigo, Funcionario novo) {
+	public void atualizarFuncionario(Funcionario novo) {
 		int n = 0;
 		boolean continuar = true;
 		while (continuar) {
-			if (funcionario[n] == antigo) {
+			if (funcionario[n].getCpf().equals(novo.getCpf())) {
 				funcionario[n] = novo;
 				continuar = false;
 			} else {

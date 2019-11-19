@@ -1,13 +1,13 @@
 package funcionarios;
 
 public abstract class Funcionario {
-	private String login;
-	private String senha;
-	private String nome;
-	private String endereco;
-	private String dataDeNascimento;
-	private String cpf;
-	private String rg;
+	protected String login;
+	protected String senha;
+	protected String nome;
+	protected String endereco;
+	protected String dataDeNascimento;
+	protected String cpf;
+	protected String rg;
 
 	public String getLogin() {
 		return login;
@@ -23,10 +23,14 @@ public abstract class Funcionario {
 
 	public String getFuncao() {
 		//Garcom, Gerente, Dono
-		if(this instanceof Funcionario)
-		return "Funcionario";
+		if(this instanceof Garcom)
+		return "Garcom";
+		else if(this instanceof Gerente)
+		return "Gerente";
+		else if(this instanceof Dono)
+		return "Dono";
 		else
-		return "Nada";
+		return "Funcionario";
 	}
 
 	public String getEndereco() {
