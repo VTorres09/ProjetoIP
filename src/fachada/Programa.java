@@ -36,6 +36,7 @@ public class Programa {
 			System.out.println("Digite sua senha:");
 			// Receber Senha
 
+			sessao = true;
 			// if senha e login sao validos, sessao true, senao sessao invalidada
 
 			for (; sessao == true;) {
@@ -75,6 +76,9 @@ public class Programa {
 
 					operacao = in.next();
 
+					// Pedidos Pedido
+					int numeroMesa; // Pode dar erro
+
 					if (operacao.equals("1")) {
 						System.out.println("Você escolheu a opção cadastrar pedido");
 					} else if (operacao.equals("2")) {
@@ -86,7 +90,7 @@ public class Programa {
 						System.out.println("Comando inválido. Você será redirecionado para a página inicial.");
 
 					///////////////////////////////////////////////
-					// Cardapio
+					// Cardapio (Falta teste)
 				} else if (comando.equals("2")) {
 					System.out.println("Você escolheu a opção Cardápio" + "\n"
 							+ "Escolha um dos comandos abaixo para selecionar a operação desejada:");
@@ -102,13 +106,75 @@ public class Programa {
 
 					operacao = in.next();
 
+					String nomePrato;
+					double precoPrato;
+					Ingrediente[] ingredientesPrato = new Ingrediente[10];
+					int identificadorPrato;
+
 					if (operacao.equals("1")) {
-						System.out.println("Você escolheu a opção cadastrar prato");
+						System.out.println("Você escolheu a opção cadastrar prato \n");
+						System.out.println("Digite o nome do novo prato");
+						nomePrato = in.nextLine();
+						System.out.println("Agora digite o preço desse prato:");
+						precoPrato = in.nextDouble();
+						System.out.println(
+								"Agora é necessário que você informe os ingredientes que são usados no prato : \n Ao terminar, digite fim");
+
+						for (String fim = ""; fim.equals("fim");) {
+							
+							String nomeIngrediente;
+							int qtdIngrediente;
+							String tipoEstoqueIngrediente;
+							String fornecedorIngrediente;
+							double precoIngrediente;
+							String validadeIngrediente;
+							String identificadorIngrediente;
+							
+							System.out.println("FIM?");
+							fim = in.nextLine();
+							System.out.println("Digite o nome do ingrediente");
+							nomeIngrediente = in.nextLine();
+							System.out.println("Agora digite a quantidade desse ingrediente:");
+							qtdIngrediente = in.nextInt();
+							in.nextLine();
+							System.out.println("Agora digite o fornecedor desse ingrediente:");
+							fornecedorIngrediente = in.nextLine();
+							System.out.println("Agora digite o tipo de estocagem desse ingrediente:");
+							tipoEstoqueIngrediente = in.nextLine();
+							System.out.println("Agora digite o preço do ingrediente:");
+							precoIngrediente = in.nextDouble();
+							in.nextLine();
+							System.out.println("Agora digite a validade desse ingrediente:");
+							validadeIngrediente = in.nextLine();
+							System.out.println("Agora digite um identificador para seu ingrediente:");
+							identificadorIngrediente = in.nextLine();
+
+							Ingrediente ingrediente = new Ingrediente(nomeIngrediente, qtdIngrediente,
+									tipoEstoqueIngrediente, fornecedorIngrediente, precoIngrediente, validadeIngrediente,
+									identificadorIngrediente);
+						}
+
+						System.out.println("Agora digite o identificador desse prato:");
+						identificadorPrato = in.nextInt();
 
 					} else if (operacao.equals("2")) {
 						System.out.println("Você escolheu a opção remover prato");
+						System.out.print("Digite o nome do prato");
+						nomePrato = in.nextLine();
+						System.out.print("Agora digite o preço desse prato:");
+						precoPrato = in.nextDouble();
+						System.out.println(
+								"Agora informe os ingredientes que são usados no prato : \n Ao terminar, digite FIM");
+						
 					} else if (operacao.equals("3")) {
 						System.out.println("Você escolheu a opção atualizar prato");
+						System.out.print("Digite o nome do prato");
+						nomePrato = in.nextLine();
+						System.out.print("Agora digite o preço desse prato:");
+						precoPrato = in.nextDouble();
+						System.out.println(
+								"Agora informe os ingredientes que são usados no prato : \n Ao terminar, digite FIM");
+						
 					} else if (operacao.equals("4")) {
 					} else
 						System.out.println("Comando inválido. Você será redirecionado para a página inicial.");
@@ -125,7 +191,9 @@ public class Programa {
 					System.out.println("Selecione essa opção para remover um mesa do sistema \n");
 					System.out.println("3 - Atualizar Mesa");
 					System.out.println("Selecione essa opção para atualizar os status de um mesa do sistema \n");
-					System.out.println("4 - Voltar");
+					System.out.println("4 - Finalizar Pedidos da Mesa");
+					System.out.println("Selecione essa opção para atualizar os status de um mesa do sistema \n");
+					System.out.println("5 - Voltar");
 					System.out.println("Selecione essa opção para voltar para a tela anterior \n");
 
 					operacao = in.next();
@@ -137,6 +205,8 @@ public class Programa {
 					} else if (operacao.equals("3")) {
 						System.out.println("Você escolheu a opção atualizar mesa");
 					} else if (operacao.equals("4")) {
+						System.out.println("Você escolheu a opção finalizar pedidos da mesa");
+					} else if (operacao.equals("5")) {
 					} else
 						System.out.println("Comando inválido. Você será redirecionado para a página inicial.");
 					///////////////////////////////////////////////
@@ -154,77 +224,90 @@ public class Programa {
 					System.out.println("Selecione essa opção para voltar para a tela anterior \n");
 
 					operacao = in.next();
+					in.nextLine();
+					
 
-					String nome;
-					int qtd;
-					String tipoEstoque;
-					String fornecedor;
-					double preco;
-					String validade;
-					String identificador;
+					String nomeIngrediente;
+					int qtdIngrediente;
+					String tipoEstoqueIngrediente;
+					String fornecedorIngrediente;
+					double precoIngrediente;
+					String validadeIngrediente;
+					String identificadorIngrediente;
 
 					if (operacao.equals("1")) {
 						System.out.println("Você escolheu a opção cadastrar ingrediente \n");
-						System.out.println("Digite o nome do ingrediente");
-						nome = in.nextLine();
-						System.out.println("Agora digite a quantidade desse ingrediente:");
-						qtd = in.nextInt();
-						System.out.println("Agora digite o fornecedor desse ingrediente:");
-						fornecedor = in.nextLine();
-						System.out.println("Agora digite o tipo de estocagem desse ingrediente:");
-						tipoEstoque = in.nextLine();
-						System.out.println("Agora digite o preço do ingrediente:");
-						preco = in.nextDouble();
-						System.out.println("Agora digite a validade desse ingrediente:");
-						validade = in.nextLine();
-						System.out.println("Agora digite um identificador para seu ingrediente:");
-						identificador = in.nextLine();
+						System.out.print("Digite o nome do novo ingrediente:");
+						nomeIngrediente = in.nextLine();
+						System.out.print("Agora digite a quantidade desse ingrediente:");
+						qtdIngrediente = in.nextInt();
+						in.nextLine();
+						System.out.print("Agora digite o fornecedor desse ingrediente:");
+						fornecedorIngrediente = in.nextLine();
+						System.out.print("Agora digite o tipo de estocagem desse ingrediente:");
+						tipoEstoqueIngrediente = in.nextLine();
+						System.out.print("Agora digite o preço do ingrediente:");
+						precoIngrediente = in.nextDouble();
+						in.nextLine();
+						System.out.print("Agora digite a validade desse ingrediente:");
+						validadeIngrediente = in.nextLine();
+						System.out.print("Agora digite um identificador para seu ingrediente:");
+						identificadorIngrediente = in.nextLine();
 
-						Ingrediente ingrediente = new Ingrediente (nome, qtd, tipoEstoque, fornecedor, preco, validade, identificador);
-						//Ver como funciona o catch
+						Ingrediente ingrediente = new Ingrediente(nomeIngrediente, qtdIngrediente,
+								tipoEstoqueIngrediente, fornecedorIngrediente, precoIngrediente, validadeIngrediente,
+								identificadorIngrediente);
+
+						// Ver como funciona o catch
 						try {
 							fachada.cadastrarIngrediente(ingrediente);
 						} catch (IngredienteJaCadastradoException e) {
 							// TODO Auto-generated catch block
 							e.printStackTrace();
 						}
+
 					} else if (operacao.equals("2")) {
 						System.out.println("Você escolheu a opção remover ingrediente \n");
 						System.out.println("Digite o identificador do ingrediente que você quer remover:");
-						identificador = in.nextLine();
-						//Ver como funciona o catch
-						try {
-							fachada.removerIngrediente(identificador);
-						} catch (IngredienteNaoCadastradoException e) {
-							// TODO Auto-generated catch block
-							e.printStackTrace();
-						}
+						identificadorIngrediente = in.nextLine();
+
+						// Ver como funciona o catch
+						/*
+						 * try { fachada.removerIngrediente(identificador); } catch
+						 * (IngredienteNaoCadastradoException e) { // TODO Auto-generated catch block
+						 * e.printStackTrace(); }
+						 */
+
 					} else if (operacao.equals("3")) {
 						System.out.println("Você escolheu a opção atualizar ingrediente");
 						System.out.println("Digite o nome do ingrediente");
-						nome = in.nextLine();
+						nomeIngrediente = in.nextLine();
 						System.out.println("Agora digite a quantidade desse ingrediente:");
-						qtd = in.nextInt();
+						qtdIngrediente = in.nextInt();
+						in.nextLine();
 						System.out.println("Agora digite o fornecedor desse ingrediente:");
-						fornecedor = in.nextLine();
+						fornecedorIngrediente = in.nextLine();
 						System.out.println("Agora digite o tipo de estocagem desse ingrediente:");
-						tipoEstoque = in.nextLine();
+						tipoEstoqueIngrediente = in.nextLine();
 						System.out.println("Agora digite o preço do ingrediente:");
-						preco = in.nextDouble();
+						precoIngrediente = in.nextDouble();
+						in.nextLine();
 						System.out.println("Agora digite a validade desse ingrediente:");
-						validade = in.nextLine();
+						validadeIngrediente = in.nextLine();
 						System.out.println("Agora digite um identificador para seu ingrediente:");
-						identificador = in.nextLine();
+						identificadorIngrediente = in.nextLine();
 
-						Ingrediente ingrediente = new Ingrediente (nome, qtd, tipoEstoque, fornecedor, preco, validade, identificador);
-						//Ver como funciona o catch
+						Ingrediente ingrediente = new Ingrediente(nomeIngrediente, qtdIngrediente,
+								tipoEstoqueIngrediente, fornecedorIngrediente, precoIngrediente, validadeIngrediente,
+								identificadorIngrediente);
+						// Ver como funciona o catch
 						try {
 							fachada.atualizarIngrediente(ingrediente);
 						} catch (IngredienteNaoCadastradoException e) {
 							// TODO Auto-generated catch block
 							e.printStackTrace();
 						}
-						
+
 					} else if (operacao.equals("4")) {
 					} else
 						System.out.println("Comando inválido. Você será redirecionado para a página inicial.");
