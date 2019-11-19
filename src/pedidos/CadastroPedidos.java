@@ -7,37 +7,49 @@ public class CadastroPedidos {
 		this.repositorio = repPedidos;
 	}
 
-	public void cadastrar(Pedidos pedido) throws PedidoJaCadastradoException {
-		if (repositorio.verificar(pedido)) {
-			throw new PedidoJaCadastradoException();
-			
+	public void cadastrar(Pedidos pedido) throws PedidoJaCadastradoException, IngredientesInsuficientesException{
+		boolean disponibilidade = true;
+		if (repositorio.existe(pedido)) {
+			throw new PedidoJaCadastradoException();		
 		} else {
-			repositorio.inserir(pedido);
+			for(int i = 0; i<pedido.getPrato().getIngredientes().length; i++) {
+				if(pedido.getPrato().getIngredientes()[i].getQtd() == 0) {
+					disponibilidade = false;
+				}
+			}		
+			if(disponibilidade) {
+				repositorio.inserir(pedido);
+				} else {
+					throw new IngredientesInsuficientesException();
+				}		
 		}
 	}
 
-	void cancelar(Pedidos pedido)  throws PedidoNaoExistenteException {
-		if(repositorio.verificar(pedido)) {
+	public void remover(Pedidos pedido)  throws PedidoNaoExistenteException {
+		if(repositorio.existe(pedido)) {
 			repositorio.remover(pedido);
 		} else {
 			throw new PedidoNaoExistenteException();
 		}
 
 	}
-    
-	void alterar(Pedidos pedido, int novaQuantidade) throws CadastroNaoRealizadoException {
-		if(repositorio.verificar(pedido)) {
-			repositorio.atualizar(pedido, novaQuantidade);
+    public void atualizar(Pedidos pedido) throws PedidoNaoExistenteException  {
+    	if(repositorio.existe(pedido)) {
+			repositorio.atualizar(pedido);
 		} else {
-			throw new CadastroNaoRealizadoException();
+			throw new PedidoNaoExistenteException();
 		}
-	}
+    }
+	
    public String imprimir() throws NaoExistemPedidosException{
 	   if(repositorio.listar().contentEquals("")) {
 	    throw new NaoExistemPedidosException();
 	   } else {
 		  return repositorio.listar();
 	   }
+   }
+   public RepositorioPedidos getPedidos() {
+	   return this.repositorio;
    }
 
 }

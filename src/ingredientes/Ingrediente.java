@@ -20,7 +20,7 @@ public class Ingrediente {
 	}
 	
 	public String getNome() {
-		return nome;
+		return this.nome;
 	}
 
 	public void setNome(String nome) {
@@ -28,7 +28,7 @@ public class Ingrediente {
 	}
 
 	public int getQtd() {
-		return qtd;
+		return this.qtd;
 	}
 
 	public void setQtd(int qtd) {
@@ -36,7 +36,7 @@ public class Ingrediente {
 	}
 
 	public String getTipoEstoque() {
-		return tipoEstoque;
+		return this.tipoEstoque;
 	}
 
 	public void setTipoEstoque(String tipoEstoque) {
@@ -44,7 +44,7 @@ public class Ingrediente {
 	}
 
 	public String getFornecedor() {
-		return fornecedor;
+		return this.fornecedor;
 	}
 
 	public void setFornecedor(String fornecedor) {
@@ -52,7 +52,7 @@ public class Ingrediente {
 	}
 
 	public double getPreco() {
-		return preco;
+		return this.preco;
 	}
 
 	public void setPreco(double preco) {
@@ -68,7 +68,7 @@ public class Ingrediente {
 	}
 
 	public String getIdentificador() {
-		return identificador;
+		return this.identificador;
 	}
 	public void setIdentificador(String identificador) {
 		this.identificador = identificador;

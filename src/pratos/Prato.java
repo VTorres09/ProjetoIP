@@ -1,3 +1,4 @@
+
 package pratos;
 
 import ingredientes.Ingrediente;
@@ -20,16 +21,16 @@ public class Prato {
 		this.preco = preco;	
 	}
 	
-	String getNome() {
+	public String getNome() {
 		return this.nome;
 	}
-	double getPreco() {
+	public double getPreco() {
 		return this.preco;
 	}
-	Ingrediente[] getIngredientes() {
+	public Ingrediente[] getIngredientes() {
 		return this.ingredientes;
 	}
-	int getIdentificador() {
+	public int getIdentificador() {
 		return this.identificador;
 	}
 	
@@ -43,3 +44,5 @@ public class Prato {
 		this.ingredientes = ingredientes;
 	}
 }
+
+
