@@ -1,8 +1,8 @@
 package mesas;
 
 
-import Funcionarios.Funcionario;
-import Pedidos.RepositorioPedidos;
+import funcionarios.Funcionario;
+import pedidos.RepositorioPedidos;
 
 
 public class Mesa {
@@ -20,6 +20,12 @@ public class Mesa {
 	public int getNum(){
 		return this.numero;
 	}
+	public Funcionario getFuncionario(){
+		return this.funcionario;
+	}
+	public RepositorioPedidos getPedidos() {
+		return this.pedidos;
+	}
 
 	public void setNumero(int num){
 		this.numero=num;
@@ -32,7 +38,5 @@ public class Mesa {
 		this.pedidos=pedidos;
 
 	}
-	public Funcionario getFuncionario(){
-		return this.funcionario;
-	}
 }
+
