@@ -61,9 +61,9 @@ public class App {
 		}
 	}
 
-	public void removerIngrediente(Ingrediente ingrediente) throws IngredienteNaoCadastradoException {
-		if (this.ingredientes.getIngredientes().existe(ingrediente.getIdentificador())) {
-			this.ingredientes.remover(ingrediente.getIdentificador());
+	public void removerIngrediente(String identificador) throws IngredienteNaoCadastradoException {
+		if (this.ingredientes.getIngredientes().existe(identificador)) {
+			this.ingredientes.remover(identificador);
 		} else {
 			throw new IngredienteNaoCadastradoException();
 		}
