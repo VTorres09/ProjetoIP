@@ -55,9 +55,11 @@ public class CadastroPedidos {
    boolean verificar(Pedidos pedido) {
 	   if(repositorio.existe(pedido)) {
 		   return true;
-	   }
+	   } else {
 	   return false;
+	   }
    }
+   
    Pedidos procurar(Pedidos pedido) throws PedidoNaoCadastradoException {
 	   return repositorio.procurar(pedido);
    }

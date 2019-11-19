@@ -10,7 +10,7 @@ public class CadastroPratos {
 		this.pratos = rep;
 	}
 	
-	public void cadastrar(Prato prato) throws PratoJaCadastradoException {
+	public void cadastrar(Prato prato) throws PratoJaCadastradoException{
 		String nomePrato = prato.getNome();
 		if(!pratos.existePrato(nomePrato)) {
 			pratos.adicionarPrato(prato);
@@ -42,13 +42,18 @@ public class CadastroPratos {
 	}
 
 	public RepositorioPratos getPratos() {
-		// TODO Auto-generated method stub
 		return this.pratos;
 	}
 	
 	
-	//completar com outras funcionalidades de cardapio
-	
+	public boolean existe(Prato prato) {
+		String nomePrato = prato.getNome();
+		if(pratos.existePrato(nomePrato)) {
+			return true;
+		} else {
+			return false;
+		}
+	}
 	
 	
 }

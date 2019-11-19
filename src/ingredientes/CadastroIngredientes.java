@@ -1,6 +1,8 @@
 
 package ingredientes;
 
+import pratos.Prato;
+
 public class CadastroIngredientes {
 	private RepositorioIngredientes estoque;
 
@@ -42,6 +44,15 @@ public class CadastroIngredientes {
 			return this.estoque.procurar(identificador);
 		else
 			throw new IngredienteNaoCadastradoException();
+	}
+	
+	public boolean existe(Ingrediente ingrediente) {
+		String identificador = ingrediente.getIdentificador();
+		if(estoque.existe(identificador)) {
+			return true;
+		} else {
+			return false;
+		}
 	}
 
 	public RepositorioIngredientes getIngredientes() {

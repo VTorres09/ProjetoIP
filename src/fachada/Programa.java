@@ -430,6 +430,10 @@ public class Programa {
 
 					if (operacao.equals("1")) {
 						System.out.println("Você escolheu a opção cadastrar funcionário");
+						
+						
+						
+						
 					} else if (operacao.equals("2")) {
 						System.out.println("Você escolheu a opção remover funcionário");
 					} else if (operacao.equals("3")) {
