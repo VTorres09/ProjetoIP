@@ -19,7 +19,7 @@ public class RepositorioMesaArray implements RepositorioMesa{
 
     public void removerMesa(Mesa mesa) {
         for (int i = 0; i < count; i++) {
-            if (arrayMesa[i] == mesa) {
+            if (arrayMesa[i].getNum() == mesa.getNum()) {
                 for (int n = i + 1; n < count; n++) {
                     arrayMesa[n - 1] = arrayMesa[n];
                 }
@@ -50,6 +50,23 @@ public class RepositorioMesaArray implements RepositorioMesa{
             }
         }
 
+    }
+
+
+    public int quantidadeMesas(Funcionario funcionario){
+	int quantidade=0;	
+	for (int i =0; i<count;i++){
+	    if (arrayMesa[i].getFuncionario().getRg()== funcionario.getRg()){
+	    quantidade++;
+
+	    }
+
+	
+	}
+	return quantidade;
+
+
+    
     }
 
 

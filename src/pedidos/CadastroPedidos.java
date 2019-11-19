@@ -25,19 +25,19 @@ public class CadastroPedidos {
 		}
 	}
 
-	public void remover(Pedidos pedido)  throws PedidoNaoExistenteException {
+	public void remover(Pedidos pedido)  throws PedidoNaoCadastradoException {
 		if(repositorio.existe(pedido)) {
 			repositorio.remover(pedido);
 		} else {
-			throw new PedidoNaoExistenteException();
+			throw new PedidoNaoCadastradoException();
 		}
 
 	}
-    public void atualizar(Pedidos pedido) throws PedidoNaoExistenteException  {
+    public void atualizar(Pedidos pedido) throws PedidoNaoCadastradoException  {
     	if(repositorio.existe(pedido)) {
 			repositorio.atualizar(pedido);
 		} else {
-			throw new PedidoNaoExistenteException();
+			throw new PedidoNaoCadastradoException();
 		}
     }
 	
@@ -50,6 +50,16 @@ public class CadastroPedidos {
    }
    public RepositorioPedidos getPedidos() {
 	   return this.repositorio;
+   }
+   
+   boolean verificar(Pedidos pedido) {
+	   if(repositorio.existe(pedido)) {
+		   return true;
+	   }
+	   return false;
+   }
+   Pedidos procurar(Pedidos pedido) throws PedidoNaoCadastradoException {
+	   return repositorio.procurar(pedido);
    }
 
 }

@@ -9,7 +9,7 @@ public class CadastroFuncionarios {
 		this.colecaoFuncionarios = repFuncionarios;
 	}
 
-	public String listarFuncionarios() throws NaoHaFuncionariosException {	
+	public String listar() throws NaoHaFuncionariosException {	
 		if(colecaoFuncionarios.listarFuncionarios("").equals("")) {
 			throw new NaoHaFuncionariosException();
 		} else {
@@ -18,7 +18,7 @@ public class CadastroFuncionarios {
 	}
 
 	
-	public void contratarFuncionario(Funcionario adicionado) throws FuncionarioJaCadastradoException {
+	public void cadastrar(Funcionario adicionado) throws FuncionarioJaCadastradoException {
 		if(!colecaoFuncionarios.existeFuncionario(adicionado)) {
 			colecaoFuncionarios.inserirFuncionario(adicionado);
 		} else {
@@ -27,7 +27,7 @@ public class CadastroFuncionarios {
 		
 	}
 
-	public void demitirFuncionario(Funcionario demitido) throws FuncionarioNaoExistenteException {
+	public void remover(Funcionario demitido) throws FuncionarioNaoExistenteException {
 		if(colecaoFuncionarios.existeFuncionario(demitido)) {
 		colecaoFuncionarios.removerFuncionario(demitido);
 		} else {
@@ -35,9 +35,12 @@ public class CadastroFuncionarios {
 		}
 	}
 	
-	public void atualizarFuncionario(Funcionario antigo, Funcionario novo) {
+	public void atualizar(Funcionario antigo, Funcionario novo) {
 		if(colecaoFuncionarios.existeFuncionario(antigo))
 		colecaoFuncionarios.atualizarFuncionario(antigo, novo);
+	}
+	public RepositorioFuncionarios getFuncionarios() {
+		return this.colecaoFuncionarios;
 	}
 
 }
