@@ -1,5 +1,7 @@
 package pedidos;
 
+import pratos.Prato;
+
 public interface RepositorioPedidos {
 	void inserir(Pedidos pedido);
 	void remover(Pedidos pedido);
@@ -7,4 +9,5 @@ public interface RepositorioPedidos {
 	String listar(); //metodo "procurar"
 	boolean existe(Pedidos pedido);
 	Pedidos procurar(Pedidos pedido) throws PedidoNaoExistenteException;
+	double consumoMesa();
 }

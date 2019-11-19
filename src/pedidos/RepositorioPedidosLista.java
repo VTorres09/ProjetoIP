@@ -1,6 +1,7 @@
 package pedidos;
 
 import ingredientes.Ingrediente;
+import pratos.Prato;
 
 public class RepositorioPedidosLista implements RepositorioPedidos{
 	private Pedidos pedido;
@@ -51,6 +52,7 @@ public class RepositorioPedidosLista implements RepositorioPedidos{
 		}
 		return tudo;
 	}
+	
 	public Pedidos procurar(Pedidos pedido) throws PedidoNaoExistenteException {
 		if(this.pedido == pedido) {
 			return pedido;
@@ -59,5 +61,15 @@ public class RepositorioPedidosLista implements RepositorioPedidos{
 		} else {
 			throw new PedidoNaoExistenteException();
 		}
+	}
+
+	public double consumoMesa() {
+		double conta = 0;
+		if(this.pedido == null) {
+			conta += 0;
+		} else {
+			conta += ((this.pedido.getPrato().getPreco())*(this.pedido.getQuantidadePratos())) + (this.prox.consumoMesa());
+		}
+		return conta;
 	}
 }

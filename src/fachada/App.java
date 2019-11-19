@@ -102,11 +102,21 @@ public class App {
 			throw new MesaNaoCadastradaException();
 		}
 	}
+	
+	public String pedirConta(Mesa mesa) throws MesaNaoCadastradaException {
+		if (this.mesas.getMesas().existeMesa(mesa)) {
+			double consumo = (mesa.getPedidos().consumoMesa()) * (0.1);
+			return "Seu consumo foi de: R$ " + consumo + ". (A taxa de 10% opcional esta inclusa).";
+		} else {
+			throw new MesaNaoCadastradaException();
+		}
+	}
 
 	//pedidos
 
-	public void fazerPedido(Pedidos pedido, Mesa mesa) throws PedidoJaCadastradoException, IngredientesInsuficientesException{
+	public void fazerPedido(Pedidos pedido, Mesa mesa) throws PedidoJaCadastradoException{
 		if (mesa.getPedidos().existe(pedido)) {
+			//pedido cadastrado no repositorio da mesa
 			throw new PedidoJaCadastradoException();
 		} else {					
 			mesa.getPedidos().inserir(pedido);			
@@ -116,6 +126,7 @@ public class App {
 
 	public void cancelarPedido(Pedidos pedido, Mesa mesa) throws PedidoNaoExistenteException {
 		if (mesa.getPedidos().existe(pedido)) {
+			//pedido removido no repositorio da mesa
 			mesa.getPedidos().remover(pedido);
 		} else {
 			throw new PedidoNaoExistenteException();
@@ -124,6 +135,7 @@ public class App {
 
 	public void atualizarPedido(Pedidos pedido, Mesa mesa) throws PedidoNaoExistenteException {
 		if (mesa.getPedidos().existe(pedido)) {
+			//pedido atualizado no repositorio da mesa
 			mesa.getPedidos().atualizar(pedido);
 		} else {
 			throw new PedidoNaoExistenteException();
