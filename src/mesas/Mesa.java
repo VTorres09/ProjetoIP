@@ -32,4 +32,7 @@ public class Mesa {
 		this.pedidos=pedidos;
 
 	}
+	public Funcionario getFuncionario(){
+		return this.funcionario;
+	}
 }
