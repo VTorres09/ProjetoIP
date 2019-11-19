@@ -28,7 +28,6 @@ public class App {
 	// Pratos
 
 	public void cadastrarPrato(Prato prato) throws PratoJaCadastradoException {
-
 		if (this.pratos.getPratos().existePrato(prato.getNome())) {
 			throw new PratoJaCadastradoException();
 		} else {
@@ -37,7 +36,6 @@ public class App {
 	}
 
 	public void removerPrato(Prato prato) throws PratoNaoCadastradoException {
-
 		if (this.pratos.getPratos().existePrato(prato.getNome())) {
 			this.pratos.remover(prato);
 		} else {
@@ -107,26 +105,26 @@ public class App {
 
 	//pedidos
 
-	public void fazerPedido(Pedidos pedido) throws PedidoJaCadastradoException, IngredientesInsuficientesException{
-		if (this.pedidos.getPedidos().existe(pedido)) {
+	public void fazerPedido(Pedidos pedido, Mesa mesa) throws PedidoJaCadastradoException, IngredientesInsuficientesException{
+		if (mesa.getPedidos().existe(pedido)) {
 			throw new PedidoJaCadastradoException();
 		} else {					
-			this.pedidos.cadastrar(pedido);	
+			mesa.getPedidos().inserir(pedido);			
 		}
 
 	}
 
-	public void cancelarPedido(Pedidos pedido) throws PedidoNaoExistenteException {
-		if (this.pedidos.getPedidos().existe(pedido)) {
-			this.pedidos.remover(pedido);
+	public void cancelarPedido(Pedidos pedido, Mesa mesa) throws PedidoNaoExistenteException {
+		if (mesa.getPedidos().existe(pedido)) {
+			mesa.getPedidos().remover(pedido);
 		} else {
 			throw new PedidoNaoExistenteException();
 		}
 	}
 
-	public void atualizarPedido(Pedidos pedido) throws PedidoNaoExistenteException {
-		if (this.pedidos.getPedidos().existe(pedido)) {
-			this.pedidos.getPedidos().atualizar(pedido);
+	public void atualizarPedido(Pedidos pedido, Mesa mesa) throws PedidoNaoExistenteException {
+		if (mesa.getPedidos().existe(pedido)) {
+			mesa.getPedidos().atualizar(pedido);
 		} else {
 			throw new PedidoNaoExistenteException();
 		}
