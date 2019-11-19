@@ -96,7 +96,7 @@ public class App {
 			throw new MesaNaoCadastradaException();
 		}
 	}
-//Mesa mesa ,int numeroMesa, Funcionario funcionario, RepositorioPedidos pedidos
+
 	public void atualizarMesa(Mesa mesa) throws MesaNaoCadastradaException {
 		if (this.mesas.getMesas().existeMesa(mesa)) {
 			this.mesas.atualizar(mesa, mesa.getNum(), mesa.getFuncionario(), mesa.getPedidos());		
