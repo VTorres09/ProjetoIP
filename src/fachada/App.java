@@ -132,21 +132,21 @@ public class App {
 
 	}
 
-	public void cancelarPedido(Pedidos pedido, Mesa mesa) throws PedidoNaoExistenteException {
+	public void cancelarPedido(Pedidos pedido, Mesa mesa) throws PedidoNaoCadastradoException {
 		if (mesa.getPedidos().existe(pedido)) {
 			//pedido removido no repositorio da mesa
 			mesa.getPedidos().remover(pedido);
 		} else {
-			throw new PedidoNaoExistenteException();
+			throw new PedidoNaoCadastradoException();
 		}
 	}
 
-	public void atualizarPedido(Pedidos pedido, Mesa mesa) throws PedidoNaoExistenteException {
+	public void atualizarPedido(Pedidos pedido, Mesa mesa) throws PedidoNaoCadastradoException {
 		if (mesa.getPedidos().existe(pedido)) {
 			//pedido atualizado no repositorio da mesa
 			mesa.getPedidos().atualizar(pedido);
 		} else {
-			throw new PedidoNaoExistenteException();
+			throw new PedidoNaoCadastradoException();
 		}
 	}
 	
