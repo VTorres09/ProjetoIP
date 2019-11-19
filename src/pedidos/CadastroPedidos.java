@@ -7,12 +7,21 @@ public class CadastroPedidos {
 		this.repositorio = repPedidos;
 	}
 
-	public void cadastrar(Pedidos pedido) throws PedidoJaCadastradoException {
+	public void cadastrar(Pedidos pedido) throws PedidoJaCadastradoException, IngredientesInsuficientesException{
+		boolean disponibilidade = true;
 		if (repositorio.existe(pedido)) {
-			throw new PedidoJaCadastradoException();
-			
+			throw new PedidoJaCadastradoException();		
 		} else {
-			repositorio.inserir(pedido);
+			for(int i = 0; i<pedido.getPrato().getIngredientes().length; i++) {
+				if(pedido.getPrato().getIngredientes()[i].getQtd() == 0) {
+					disponibilidade = false;
+				}
+			}		
+			if(disponibilidade) {
+				repositorio.inserir(pedido);
+				} else {
+					throw new IngredientesInsuficientesException();
+				}		
 		}
 	}
 

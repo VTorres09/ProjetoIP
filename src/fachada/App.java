@@ -107,21 +107,11 @@ public class App {
 
 	//pedidos
 
-	public void fazerPedido(Pedidos pedido) throws PedidoJaCadastradoException {
-		boolean disponibilidade = true;
+	public void fazerPedido(Pedidos pedido) throws PedidoJaCadastradoException, IngredientesInsuficientesException{
 		if (this.pedidos.getPedidos().existe(pedido)) {
 			throw new PedidoJaCadastradoException();
-		} else {			
-			for(int i = 0; i<pedido.getPrato().getIngredientes().length; i++) {
-				if(pedido.getPrato().getIngredientes()[i].getQtd() == 0) {
-					disponibilidade = false;
-				}
-			}
-			if(disponibilidade) {
-			this.pedidos.cadastrar(pedido);
-			} else {
-				//erro?? ou mensagem??
-			}
+		} else {					
+			this.pedidos.cadastrar(pedido);	
 		}
 
 	}
