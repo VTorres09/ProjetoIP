@@ -58,4 +58,16 @@ public class RepositorioFuncionariosLista implements RepositorioFuncionarios {
 		}
 		return res;
 	}
+
+	public Funcionario procurarFuncionario(String login, String senha) {
+		if (this.funcionario == null) {
+			return null;
+		} else if (this.funcionario.getLogin().equals(login)) {
+			if(this.funcionario.getSenha().equals(senha))
+			return this.funcionario;
+		} else {
+			return this.prox.procurarFuncionario(login, senha);
+		}
+		return null;
+	}
 }

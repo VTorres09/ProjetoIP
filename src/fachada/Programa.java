@@ -32,9 +32,9 @@ public class Programa {
 
 		for (boolean sessao = false, programaAberto = true; programaAberto == true;) {
 			System.out.println("Digite o seu Login:");
-			// Receber Login
+			String loginAtual = in.nextLine();
 			System.out.println("Digite sua senha:");
-			// Receber Senha
+			String senhaAtual = in.nextLine();
 
 			sessao = true;
 			// if senha e login sao validos, sessao true, senao sessao invalidada
@@ -57,7 +57,7 @@ public class Programa {
 				System.out.println("6 - Finalizar Sessao");
 				System.out.println("Selecione essa opcao para finalizar sua sessao. \n");
 
-				comando = in.next();
+				comando = in.nextLine();
 
 				///////////////////////////////////////////////
 				// Pedidos
@@ -74,7 +74,7 @@ public class Programa {
 					System.out.println("4 - Voltar");
 					System.out.println("Selecione essa opcao para voltar para a tela anterior \n");
 
-					operacao = in.next();
+					operacao = in.nextLine();
 
 					// Pedidos Pedido
 					int numeroMesa;
@@ -451,29 +451,180 @@ public class Programa {
 					///////////////////////////////////////////////
 					// Funcionarios
 				} else if (comando.equals("5")) {
-					System.out.println("Voce escolheu a opcao Funcionarios" + "\n"
-							+ "Escolha um dos comandos abaixo para selecionar a operacao desejada:");
-
-					System.out.println("1 - Cadastrar Funcionario");
-					System.out.println("Selecione essa opcao para cadastrar um novo Funcionario ao sistema \n");
-					System.out.println("2 - Remover Funcionario");
-					System.out.println("Selecione essa opcao para remover um Funcionario do sistema \n");
-					System.out.println("3 - Atualizar Funcionario");
-					System.out.println("Selecione essa opcao para atualizar os status de um Funcionario no sistema \n");
+					System.out.println("Voc� escolheu a op��o Funcion�rios" + "\n"
+							+ "Escolha um dos comandos abaixo para selecionar a opera��o desejada:");
+					System.out.println("1 - Cadastrar Funcion�rio");
+					System.out.println("Selecione essa op��o para cadastrar um novo funcion�rio ao sistema \n");
+					System.out.println("2 - Remover Funcion�rio");
+					System.out.println("Selecione essa op��o para remover um funcion�rio do sistema \n");
+					System.out.println("3 - Atualizar Funcion�rio");
+					System.out.println("Selecione essa op��o para atualizar os status de um funcion�rio no sistema \n");
 					System.out.println("4 - Voltar");
-					System.out.println("Selecione essa opcao para voltar para a tela anterior \n");
+					System.out.println("Selecione essa op��o para voltar para a tela anterior \n");
 
-					operacao = in.next();
+					operacao = in.nextLine();
 
+                                  
+                    //CADASTRO         	
 					if (operacao.equals("1")) {
-						System.out.println("Voce escolheu a opcao cadastrar Funcionario");
+						System.out.println("Voc� escolheu a op��o cadastrar funcion�rio");
+                                          	//INFORMACOES
+											System.out.println("Digite o nome do novo Funcion�rio: ");
+											String nomeFuncionario = in.nextLine();
+                                          	System.out.println("Digite o login de "+nomeFuncionario+": ");
+                                         	String loginFuncionario = in.nextLine();
+                                          	System.out.println("Digite a senha de "+nomeFuncionario+": ");
+                                          	String senhaFuncionario = in.nextLine();	
+                                          	System.out.println("Digite o endere�o de "+nomeFuncionario+": ");
+                                          	String enderecoFuncionario = in.nextLine();
+                                          	System.out.println("Digite a data de nascimento de "+nomeFuncionario+": ");
+                                          	String dataFuncionario = in.nextLine();	
+                                          	System.out.println("Digite o CPF de "+nomeFuncionario+": "); 
+                                          	String cpfFuncionario = in.nextLine();	
+                                          	System.out.println("Digite o RG de "+nomeFuncionario+": "); 
+                                          	String rgFuncionario = in.nextLine();
+                                          	System.out.println("Digite a ocupa��o de "+nomeFuncionario+": "); 
+                                          	String typeFuncionario = in.nextLine();
+                                          	//GARCOM
+                                          	if(typeFuncionario.equals("Garcom")){
+                                          		System.out.println("Defina o sal�rio de "+nomeFuncionario+": ");
+                                          		double salarioFuncionario = in.nextDouble();
+                                                
+                                          		Funcionario novoFuncionario = new Garcom(loginFuncionario, senhaFuncionario, nomeFuncionario,
+                                                enderecoFuncionario, dataFuncionario, cpfFuncionario, rgFuncionario, salarioFuncionario);
+                                        	
+                                          		try {
+													fachada.cadastrarFuncionario(novoFuncionario);
+													System.out.println("O Gar�om "+nomeFuncionario+" foi adicionado com sucesso!");
+												} catch (FuncionarioJaCadastradoException e) {
+													e.printStackTrace();
+												}
+                                          	}
+                                            //GERENTE
+                                          	else if(typeFuncionario.equals("Gerente")){
+                                          		System.out.println("Defina o sal�rio de "+nomeFuncionario+": ");
+                                          		double salarioFuncionario = in.nextDouble();
+                                                
+                                          		Funcionario novoFuncionario = new Gerente(loginFuncionario, senhaFuncionario, nomeFuncionario,
+                                                enderecoFuncionario, dataFuncionario, cpfFuncionario, rgFuncionario, salarioFuncionario);
+                                        	
+                                          		try {
+													fachada.cadastrarFuncionario(novoFuncionario);
+													System.out.println("O Gerente "+nomeFuncionario+" foi adicionado com sucesso!");
+												} catch (FuncionarioJaCadastradoException e) {
+													e.printStackTrace();
+												} 
+                                            }
+                                          	
+                    //REMOVER
 					} else if (operacao.equals("2")) {
-						System.out.println("Voce escolheu a opcao remover Funcionario");
+											System.out.println("Voc� escolheu a op��o remover funcion�rio");
+											System.out.println("Para remover um funcion�rio digite o seu respectivo login: ");
+											String loginFuncionario = in.nextLine();
+											System.out.println("Agora sua respectiva senha: ");
+											String senhaFuncionario = in.nextLine();
+											try {
+											Funcionario removido = fachada.procurarFuncionario(loginFuncionario, senhaFuncionario);
+											boolean check = true;
+											while(check) {
+												System.out.println("Deseja mesmo remover "+removido+"?(sim/nao) ");
+												String res = in.nextLine();
+												if(res.equals("sim")) {
+													check = false;
+													fachada.removerFuncionario(removido);
+													System.out.println("Ok. Funcionario removido");
+												}else if(res.equals("nao")) {
+													check = false;
+													System.out.println("Ok. Opera��o cancelada");
+												}
+											}
+											}catch(FuncionarioNaoExistenteException e) {
+												e.printStackTrace();
+											}
+					
+											
 					} else if (operacao.equals("3")) {
-						System.out.println("Voce escolheu a opcao atualizar Funcionario");
+						System.out.println("Voc� escolheu a op��o atualizar funcion�rio");
+						boolean check = true;
+						while(check) {
+						System.out.println("Deseja ver a rela��o de funcionarios antes de atualizar?(sim/nao) ");
+						String res = in.nextLine();
+							if(res.equals("sim")) {
+								check = false;
+								try {
+									System.out.println(fachada.listarFuncionarios());
+								} catch (NaoHaFuncionariosException e) {
+									e.printStackTrace();
+								}
+							}else if(res.equals("nao")) {
+								check = false;
+								System.out.println("Ok");
+							}else {}
+						}
+						System.out.println("Para atualizar um funcion�rio digite o seu respectivo login: ");
+						String loginFuncionario = in.nextLine();
+						System.out.println("Agora sua respectiva senha: ");
+						String senhaFuncionario = in.nextLine();
+						try {
+							Funcionario atualizado = fachada.procurarFuncionario(loginFuncionario, senhaFuncionario);
+							System.out.println("O que deseja mudar em seu Funcionario? ");
+							System.out.println("1 - Alterar Endere�o");
+							System.out.println("2 - Alterar Login");
+							System.out.println("3 - Alterar Senha");
+							int alteracao = in.nextInt();
+							boolean continuar = true;
+							while(continuar) {
+								switch (alteracao) {
+								case 1:
+									continuar = false;
+									System.out.println("o endere�o atual � "+atualizado.getEndereco());
+									System.out.println("Digite o novo Endere�o: ");
+									String endereco = in.nextLine();
+									atualizado.setEndereco(endereco);
+									fachada.atualizarFuncionario(atualizado);
+									System.out.println("Endere�o alterado com sucesso");
+								break;
+								case 2:
+									continuar = false;
+									System.out.println("o login atual � "+atualizado.getLogin());
+									System.out.println("Digite o novo Login: ");
+									String login = in.nextLine();
+									atualizado.setLogin(login);
+									fachada.atualizarFuncionario(atualizado);
+									System.out.println("Login alterado com sucesso");
+								break;
+								case 3:
+									continuar = false;
+									System.out.println("Digite a nova senha: ");
+									String novaSenha = in.nextLine();
+									atualizado.setSenha(novaSenha);
+									fachada.atualizarFuncionario(atualizado);
+									System.out.println("Senha alterada com sucesso");
+								break;
+								default:
+									System.out.println("Comando inv�lido, favor digitar um dos comandos indicados:");
+									System.out.println("1 - Alterar Endere�o");
+									System.out.println("2 - Alterar Login");
+									System.out.println("3 - Alterar Senha");
+									alteracao = in.nextInt();
+								break;
+								}
+							}
+							
+						
+							}catch(FuncionarioNaoExistenteException e) {
+								e.printStackTrace();
+							}
+						
+						
+						
+						
+						
+						
+						
 					} else if (operacao.equals("4")) {
 					} else
-						System.out.println("Comando invalido. Voce sera redirecionado para a pagina inicial.");
+						System.out.println("Comando inv�lido. Voc� ser� redirecionado para a p�gina inicial.");
 
 					///////////////////////////////////////////////
 					// Finalizar sessao

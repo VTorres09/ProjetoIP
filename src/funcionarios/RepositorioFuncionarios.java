@@ -10,4 +10,6 @@ public interface RepositorioFuncionarios {
 	public boolean existeFuncionario(Funcionario funcionario);
 	
 	public String listarFuncionarios(String vazia);
+	
+	public Funcionario procurarFuncionario(String login, String senha);
 }

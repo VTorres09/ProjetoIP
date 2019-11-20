@@ -33,6 +33,34 @@ public abstract class Funcionario {
 		return "Funcionario";
 	}
 
+	public void setLogin(String login) {
+		this.login = login;
+	}
+
+	public void setSenha(String senha) {
+		this.senha = senha;
+	}
+
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
+
+	public void setEndereco(String endereco) {
+		this.endereco = endereco;
+	}
+
+	public void setDataDeNascimento(String dataDeNascimento) {
+		this.dataDeNascimento = dataDeNascimento;
+	}
+
+	public void setCpf(String cpf) {
+		this.cpf = cpf;
+	}
+
+	public void setRg(String rg) {
+		this.rg = rg;
+	}
+
 	public String getEndereco() {
 		return endereco;
 	}

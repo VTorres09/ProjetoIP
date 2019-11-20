@@ -84,5 +84,24 @@ public class RepositorioFuncionariosArray implements RepositorioFuncionarios {
 		}
 		return res;
 	}
+
+
+	public Funcionario procurarFuncionario(String login, String senha) {
+		int n = 0;
+		boolean continuar = true;
+		Funcionario res = null;
+		while (continuar) {
+			if (funcionario[n] == null) {
+				continuar = false;
+			} else if (funcionario[n].getLogin().equals(login)) {
+				continuar = false;
+				if(funcionario[n].getSenha().equals(senha))
+				res = funcionario[n];
+			} else {
+				n+=1;
+			}
+		}
+		return res;
+	}
 	
 }

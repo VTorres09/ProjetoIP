@@ -231,33 +231,52 @@ public class App {
 	}
 	// funcionarios
 	
-	//cadastra um funcionario
-	public void cadastrarFuncionario(Funcionario funcionario) throws FuncionarioJaCadastradoException {
-		if (this.funcionarios.getFuncionarios().existeFuncionario(funcionario)) {
-			throw new FuncionarioJaCadastradoException();
-		} else {
-			this.funcionarios.cadastrar(funcionario);
-		}
+		//cadastra um funcionario
+		public void cadastrarFuncionario(Funcionario funcionario) throws FuncionarioJaCadastradoException {
+			if (this.funcionarios.getFuncionarios().existeFuncionario(funcionario)) {
+				throw new FuncionarioJaCadastradoException();
+			} else {
+				this.funcionarios.cadastrar(funcionario);
+			}
 
-	}
-	//remove um funcionario
-	public void removerFuncionario(Funcionario funcionario) throws FuncionarioNaoExistenteException {
-		if (this.funcionarios.getFuncionarios().existeFuncionario(funcionario)) {
-			this.funcionarios.remover(funcionario);
-		} else {
-			throw new FuncionarioNaoExistenteException();
 		}
+		//remove um funcionario
+		public void removerFuncionario(Funcionario funcionario) throws FuncionarioNaoExistenteException {
+			if (this.funcionarios.getFuncionarios().existeFuncionario(funcionario)) {
+				this.funcionarios.remover(funcionario);
+			} else {
+				throw new FuncionarioNaoExistenteException();
+			}
 
-	}
-	
-	//atualiza um funcionario
-	public void atualizarFuncionario(Funcionario funcionario) throws FuncionarioNaoExistenteException {
-		if (this.funcionarios.getFuncionarios().existeFuncionario(funcionario)) {
-			this.funcionarios.atualizar(funcionario);
-		} else {
-			throw new FuncionarioNaoExistenteException();
 		}
+		
+		//atualiza um funcionario
+		public void atualizarFuncionario(Funcionario funcionario) throws FuncionarioNaoExistenteException {
+			if (this.funcionarios.getFuncionarios().existeFuncionario(funcionario)) {
+				this.funcionarios.atualizar(funcionario);
+			} else {
+				throw new FuncionarioNaoExistenteException();
+			}
 
-	}
+		}
+		
+		//procura um funcionario
+		public Funcionario procurarFuncionario(String login, String senha) throws FuncionarioNaoExistenteException {
+			Funcionario achado = this.funcionarios.getFuncionarios().procurarFuncionario(login, senha);
+			if (achado != null) {
+				return achado;
+			} else {
+				throw new FuncionarioNaoExistenteException();
+			}
+		}
+		
+		//lista os funcionarios
+		public String listarFuncionarios() throws NaoHaFuncionariosException {
+			if(this.funcionarios.listar().equals("")) {
+				throw new NaoHaFuncionariosException();
+			}else {
+				return this.funcionarios.listar();
+			}
+		}
 
 }

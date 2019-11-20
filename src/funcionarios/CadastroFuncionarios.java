@@ -42,5 +42,13 @@ public class CadastroFuncionarios {
 	public RepositorioFuncionarios getFuncionarios() {
 		return this.colecaoFuncionarios;
 	}
+	
+	
+	public Funcionario procurar(String login, String senha) throws FuncionarioNaoExistenteException{
+		Funcionario check = colecaoFuncionarios.procurarFuncionario(login, senha);
+		if(check == null)
+		throw new FuncionarioNaoExistenteException();
+		else return check;
+	}
 
 }
