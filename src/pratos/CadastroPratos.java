@@ -31,7 +31,7 @@ public class CadastroPratos {
 	}
 	
 	public void atualizar(int identificador, String nome, double preco, Ingrediente[] ingredientes) throws PratoNaoCadastradoException {
-		if(!pratos.existePrato(nome)) {
+		if(pratos.existePrato(nome)) {
 			pratos.atualizarPrato(identificador, nome, preco, ingredientes);
 		} else {
 			throw new PratoNaoCadastradoException();

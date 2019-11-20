@@ -43,36 +43,36 @@ public class Programa {
 
 				System.out.println("Bem vindo ao SCR (Sistema de Controle de Restaurante) \n ");
 				System.out.println(
-						"Escolha um dos comandos abaixo para selecionar qual funcionalidade você deseja usar \n");
+						"Escolha um dos comandos abaixo para selecionar qual funcionalidade voce deseja usar \n");
 				System.out.println("1 - Pedidos");
-				System.out.println("Selecione essa opção para acessar as operações relacionadas a pedidos. \n");
-				System.out.println("2 - Cardápio");
-				System.out.println("Selecione essa opção para acessar as operações relacionadas a cardápio. \n");
+				System.out.println("Selecione essa opcao para acessar as operacoes relacionadas a pedidos. \n");
+				System.out.println("2 - Cardapio");
+				System.out.println("Selecione essa opcao para acessar as operacoes relacionadas a cardapio. \n");
 				System.out.println("3 - Mesas");
-				System.out.println("Selecione essa opção para acessar as operações relacionadas a mesas. \n");
+				System.out.println("Selecione essa opcao para acessar as operacoess relacionadas a mesas. \n");
 				System.out.println("4 - Ingredientes");
-				System.out.println("Selecione essa opção para acessar as operações relacionadas a ingredientes. \n");
-				System.out.println("5 - Funcionários");
-				System.out.println("Selecione essa opção para acessar as operações relacionadas a funcionários. \n");
-				System.out.println("6 - Finalizar Sessão");
-				System.out.println("Selecione essa opção para finalizar sua sessão. \n");
+				System.out.println("Selecione essa opcao para acessar as operacoes relacionadas a ingredientes. \n");
+				System.out.println("5 - Funcionarios");
+				System.out.println("Selecione essa opcao para acessar as operacoes relacionadas a funcionarios. \n");
+				System.out.println("6 - Finalizar Sessao");
+				System.out.println("Selecione essa opcao para finalizar sua sessao. \n");
 
 				comando = in.next();
 
 				///////////////////////////////////////////////
 				// Pedidos
 				if (comando.equals("1")) {
-					System.out.println("Você escolheu a opção Pedidos" + "\n"
-							+ "Escolha um dos comandos abaixo para selecionar a operação desejada:");
+					System.out.println("Voce escolheu a opcao Pedidos" + "\n"
+							+ "Escolha um dos comandos abaixo para selecionar a operacao desejada:");
 
 					System.out.println("1 - Cadastrar Pedido");
-					System.out.println("Selecione essa opção para inserir um novo pedido no sistema \n");
+					System.out.println("Selecione essa opcao para inserir um novo pedido no sistema \n");
 					System.out.println("2 - Remover Pedido");
-					System.out.println("Selecione essa opção para remover um pedido do sistema \n");
+					System.out.println("Selecione essa opcao para remover um pedido do sistema \n");
 					System.out.println("3 - Atualizar Pedido");
-					System.out.println("Selecione essa opção para atualizar os status de um pedido do sistema \n");
+					System.out.println("Selecione essa opcao para atualizar os status de um pedido do sistema \n");
 					System.out.println("4 - Voltar");
-					System.out.println("Selecione essa opção para voltar para a tela anterior \n");
+					System.out.println("Selecione essa opcao para voltar para a tela anterior \n");
 
 					operacao = in.next();
 
@@ -80,29 +80,29 @@ public class Programa {
 					int numeroMesa;
 
 					if (operacao.equals("1")) {
-						System.out.println("Você escolheu a opção cadastrar pedido");
+						System.out.println("Voce escolheu a opcao cadastrar pedido");
 					} else if (operacao.equals("2")) {
-						System.out.println("Você escolheu a opção remover pedido");
+						System.out.println("Voce escolheu a opcao remover pedido");
 					} else if (operacao.equals("3")) {
-						System.out.println("Você escolheu a opção atualizar pedido");
+						System.out.println("Voce escolheu a opcao atualizar pedido");
 					} else if (operacao.equals("4")) {
 					} else
-						System.out.println("Comando inválido. Você será redirecionado para a página inicial.");
+						System.out.println("Comando invalido. Voce sera redirecionado para a pagina inicial.");
 
 					///////////////////////////////////////////////
 					// Cardapio (Falta teste)
 				} else if (comando.equals("2")) {
-					System.out.println("Você escolheu a opção Cardápio" + "\n"
-							+ "Escolha um dos comandos abaixo para selecionar a operação desejada:");
+					System.out.println("Voce escolheu a opcao Cardapio" + "\n"
+							+ "Escolha um dos comandos abaixo para selecionar a operacao desejada:");
 
 					System.out.println("1 - Cadastrar Prato");
-					System.out.println("Selecione essa opção para inserir um novo prato no cardápio \n");
+					System.out.println("Selecione essa opcao para inserir um novo prato no cardapio \n");
 					System.out.println("2 - Remover Prato");
-					System.out.println("Selecione essa opção para remover um prato do cardápio \n");
+					System.out.println("Selecione essa opcao para remover um prato do cardapio \n");
 					System.out.println("3 - Atualizar Prato");
-					System.out.println("Selecione essa opção para atualizar os status de um prato do cardápio \n");
+					System.out.println("Selecione essa opcao para atualizar os status de um prato do cardapio \n");
 					System.out.println("4 - Voltar");
-					System.out.println("Selecione essa opção para voltar para a tela anterior \n");
+					System.out.println("Selecione essa opcao para voltar para a tela anterior \n");
 
 					operacao = in.next();
 					in.nextLine();
@@ -116,14 +116,14 @@ public class Programa {
 					int identificadorPrato;
 
 					if (operacao.equals("1")) {
-						System.out.println("Você escolheu a opção cadastrar prato \n");
+						System.out.println("Voce escolheu a opcao cadastrar prato \n");
 						System.out.println("Digite o nome do novo prato");
 						nomePrato = in.nextLine();
-						System.out.println("Agora digite o preço desse prato:");
+						System.out.println("Agora digite o preco desse prato:");
 						precoPrato = in.nextDouble();
 						in.nextLine();
 						System.out.println(
-								"Agora é necessário que você informe os ingredientes que são usados no prato : \n Ao terminar, digite fim");
+								"Agora e necessario que voce informe os ingredientes que sao usados no prato : \n Ao terminar, digite fim");
 
 						for (fim = ""; !fim.equals("fim");) {
 							
@@ -145,6 +145,7 @@ public class Programa {
 
 							Prato prato = new Prato(nomePrato, precoPrato, ingredientesPrato, identificadorPrato);
 							System.out.println("Prato cadastrado com sucesso!");
+							System.out.println("-----------------------------------");
 							try {
 								try {
 									fachada.cadastrarPrato(prato);
@@ -164,7 +165,7 @@ public class Programa {
 						
 
 					} else if (operacao.equals("2")) {
-						System.out.println("Você escolheu a opção remover prato");
+						System.out.println("Voce escolheu a opcao remover prato");
 						System.out.print("Digite o nome do prato: ");
 						nomePrato = in.nextLine();
 						
@@ -174,6 +175,7 @@ public class Programa {
 							try {
 								fachada.removerPrato(pratoRemover);
 								System.out.println("Prato removido com sucesso!");
+								System.out.println("-----------------------------------");
 							} catch (PratoNaoCadastradoException e) {
 								e.printStackTrace();
 								in.nextLine();
@@ -187,8 +189,9 @@ public class Programa {
 
 					} else if (operacao.equals("3")) {
 						contador = 0;
-						System.out.println("Você escolheu a opção atualizar prato");
-						System.out.print("Digite o novo nome do prato (Se desejado): ");
+						Ingrediente ingrediente;
+						System.out.println("Voce escolheu a opcao atualizar prato");
+						System.out.print("Digite o nome do prato: ");
 						String novoNomePrato = in.nextLine();
 						System.out.print("Digite o novo preco do prato (Se desejado): ");
 						Double novoPrecoPrato = in.nextDouble(); 
@@ -202,82 +205,82 @@ public class Programa {
                                                   
 							System.out.println("Fim?");
 							fim = in.nextLine();
-								
-							Ingrediente ingrediente;
-							try {
-								ingrediente = fachada.procurarIngrediente(identificadorIngrediente);
-								ingredientesNovoPrato[contador] = ingrediente;
-								contador++;		
-								System.out.println("Agora digite o identificador desse prato:");
-								identificadorPrato = in.nextInt();
 
-								Prato novoPrato = new Prato(novoNomePrato, novoPrecoPrato, ingredientesNovoPrato, identificadorPrato);
+						}
+						
+						try {
+							ingrediente = fachada.procurarIngrediente(identificadorIngrediente);
+							ingredientesNovoPrato[contador] = ingrediente;
+							contador++;		
+							System.out.println("Agora digite o identificador desse prato:");
+							identificadorPrato = in.nextInt();
+
+							Prato novoPrato = new Prato(novoNomePrato, novoPrecoPrato, ingredientesNovoPrato, identificadorPrato);
+							
+							try {
+								fachada.atualizarPrato(novoPrato);
+								System.out.println("Prato atualizado com sucesso!");
+								System.out.println("-----------------------------------");
 								
-								try {
-									fachada.atualizarPrato(novoPrato);
-									System.out.println("Prato atualizado com sucesso!");
-									
-								} catch (PratoNaoCadastradoException e) {
-									e.printStackTrace();
-									in.nextLine();
-								}
-								
-							} catch (IngredienteNaoCadastradoException e) {
-								
+							} catch (PratoNaoCadastradoException e) {
 								e.printStackTrace();
 								in.nextLine();
-								fim = "fim";
 							}
-
+							
+						} catch (IngredienteNaoCadastradoException e) {
+							
+							e.printStackTrace();
+							in.nextLine();
+							fim = "fim";
 						}
 
 					} else if (operacao.equals("4")) {
 					} else
-						System.out.println("Comando inválido. Você será redirecionado para a página inicial.");
+						System.out.println("Comando invalido. Voce sera redirecionado para a pagina inicial.");
 
 					///////////////////////////////////////////////
 					// Mesas
 				} else if (comando.equals("3")) {
-					System.out.println("Você escolheu a opção Mesas" + "\n"
-							+ "Escolha um dos comandos abaixo para selecionar a operação desejada:");
+					System.out.println("Voce escolheu a opcao Mesas" + "\n"
+							+ "Escolha um dos comandos abaixo para selecionar a operacao desejada:");
 
 					System.out.println("1 - Cadastrar Mesa");
-					System.out.println("Selecione essa opção para inserir uma nova mesa ao sistema \n");
+					System.out.println("Selecione essa opcao para inserir uma nova mesa ao sistema \n");
 					System.out.println("2 - Remover Mesa");
-					System.out.println("Selecione essa opção para remover um mesa do sistema \n");
+					System.out.println("Selecione essa opcao para remover um mesa do sistema \n");
 					System.out.println("3 - Atualizar Mesa");
-					System.out.println("Selecione essa opção para atualizar os status de um mesa do sistema \n");
+					System.out.println("Selecione essa opcao para atualizar os status de um mesa do sistema \n");
 					System.out.println("4 - Finalizar Pedidos da Mesa");
-					System.out.println("Selecione essa opção para atualizar os status de um mesa do sistema \n");
+					System.out.println("Selecione essa opcao para atualizar os status de um mesa do sistema \n");
 					System.out.println("5 - Voltar");
-					System.out.println("Selecione essa opção para voltar para a tela anterior \n");
+					System.out.println("Selecione essa opcao para voltar para a tela anterior \n");
 
 					operacao = in.next();
 
 					if (operacao.equals("1")) {
-						System.out.println("Você escolheu a opção cadastrar mesa");
+						System.out.println("Voce escolheu a opcao cadastrar mesa");
 					} else if (operacao.equals("2")) {
-						System.out.println("Você escolheu a opção remover mesa");
+						System.out.println("Voce escolheu a opcao remover mesa");
 					} else if (operacao.equals("3")) {
-						System.out.println("Você escolheu a opção atualizar mesa");
+						System.out.println("Voce escolheu a opcao atualizar mesa");
 					} else if (operacao.equals("4")) {
-						System.out.println("Você escolheu a opção finalizar pedidos da mesa");
+						System.out.println("Voce escolheu a opcao finalizar pedidos da mesa");
 					} else if (operacao.equals("5")) {
 					} else
-						System.out.println("Comando inválido. Você será redirecionado para a página inicial.");
+						System.out.println("Comando invalido. Voce sera redirecionado para a pagina inicial.");
 					///////////////////////////////////////////////
 					// Ingredientes (Falta teste)
 				} else if (comando.equals("4")) {
-					System.out.println("Você escolheu a opção Ingredientes" + "\n"
-							+ "Escolha um dos comandos abaixo para selecionar a operação desejada: \n");
+					System.out.println("Voce escolheu a opcao Ingredientes" + "\n"
+							+ "Escolha um dos comandos abaixo para selecionar a operacao desejada: \n");
 					System.out.println("1 - Cadastrar Ingrediente");
-					System.out.println("Selecione essa opção para inserir um novo ingrediente no estoque \n");
+					System.out.println("Selecione essa opcao para inserir um novo ingrediente no estoque \n");
 					System.out.println("2 - Remover Ingrediente");
-					System.out.println("Selecione essa opção para remover um ingrediente do estoque \n");
+					System.out.println("Selecione essa opcao para remover um ingrediente do estoque \n");
 					System.out.println("3 - Atualizar Ingrediente");
-					System.out.println("Selecione essa opção para atualizar os status de um ingrediente do estoque \n");
+					System.out.println("Selecione essa opcao para atualizar os status de um ingrediente do estoque \n");
 					System.out.println("4 - Voltar");
-					System.out.println("Selecione essa opção para voltar para a tela anterior \n");
+					System.out.println("Selecione essa opcao para voltar para a tela anterior \n");
 
 					operacao = in.next();
 					in.nextLine();
@@ -291,7 +294,7 @@ public class Programa {
 					String identificadorIngrediente;
 
 					if (operacao.equals("1")) {
-						System.out.println("Você escolheu a opção cadastrar ingrediente \n");
+						System.out.println("Voce escolheu a opcao cadastrar ingrediente \n");
 						System.out.print("Digite o nome do novo ingrediente:");
 						nomeIngrediente = in.nextLine();
 						System.out.print("Agora digite a quantidade desse ingrediente:");
@@ -301,7 +304,7 @@ public class Programa {
 						fornecedorIngrediente = in.nextLine();
 						System.out.print("Agora digite o tipo de estocagem desse ingrediente:");
 						tipoEstoqueIngrediente = in.nextLine();
-						System.out.print("Agora digite o preço do ingrediente:");
+						System.out.print("Agora digite o preco do ingrediente:");
 						precoIngrediente = in.nextDouble();
 						in.nextLine();
 						System.out.print("Agora digite a validade desse ingrediente:");
@@ -313,6 +316,7 @@ public class Programa {
 								tipoEstoqueIngrediente, fornecedorIngrediente, precoIngrediente, validadeIngrediente,
 								identificadorIngrediente);
 						System.out.println("Ingrediente Cadastrado com sucesso!");
+						System.out.println("-----------------------------------");
 						try {
 							fachada.cadastrarIngrediente(ingrediente);
 						} catch (IngredienteJaCadastradoException e) {
@@ -320,8 +324,8 @@ public class Programa {
 						}
 
 					} else if (operacao.equals("2")) {
-						System.out.println("Você escolheu a opção remover ingrediente \n");
-						System.out.println("Digite o identificador do ingrediente que você quer remover:");
+						System.out.println("Voce escolheu a opcao remover ingrediente \n");
+						System.out.println("Digite o identificador do ingrediente que voce quer remover:");
 						identificadorIngrediente = in.nextLine();
 
 						try {
@@ -331,7 +335,7 @@ public class Programa {
 						}
 
 					} else if (operacao.equals("3")) {
-						System.out.println("Você escolheu a opção atualizar ingrediente");
+						System.out.println("Voce escolheu a opcao atualizar ingrediente");
 						System.out.println("Digite o nome do ingrediente");
 						nomeIngrediente = in.nextLine();
 						System.out.println("Agora digite a quantidade desse ingrediente:");
@@ -341,7 +345,7 @@ public class Programa {
 						fornecedorIngrediente = in.nextLine();
 						System.out.println("Agora digite o tipo de estocagem desse ingrediente:");
 						tipoEstoqueIngrediente = in.nextLine();
-						System.out.println("Agora digite o preço do ingrediente:");
+						System.out.println("Agora digite o preco do ingrediente:");
 						precoIngrediente = in.nextDouble();
 						in.nextLine();
 						System.out.println("Agora digite a validade desse ingrediente:");
@@ -357,53 +361,54 @@ public class Programa {
 							fachada.atualizarIngrediente(ingrediente);
 						} catch (IngredienteNaoCadastradoException e) {
 							System.out.println(e);
+							in.nextLine();
 						}
-
+						
 					} else if (operacao.equals("4")) {
 					} else
-						System.out.println("Comando inválido. Você será redirecionado para a página inicial.");
+						System.out.println("Comando invalido. Voce sera redirecionado para a pagina inicial.");
 
 					///////////////////////////////////////////////
 					// Funcionarios
 				} else if (comando.equals("5")) {
-					System.out.println("Você escolheu a opção Funcionários" + "\n"
-							+ "Escolha um dos comandos abaixo para selecionar a operação desejada:");
+					System.out.println("Voce escolheu a opcao Funcionarios" + "\n"
+							+ "Escolha um dos comandos abaixo para selecionar a operacao desejada:");
 
-					System.out.println("1 - Cadastrar Funcionário");
-					System.out.println("Selecione essa opção para cadastrar um novo funcionário ao sistema \n");
-					System.out.println("2 - Remover Funcionário");
-					System.out.println("Selecione essa opção para remover um funcionário do sistema \n");
-					System.out.println("3 - Atualizar Funcionário");
-					System.out.println("Selecione essa opção para atualizar os status de um funcionário no sistema \n");
+					System.out.println("1 - Cadastrar Funcionario");
+					System.out.println("Selecione essa opcao para cadastrar um novo Funcionario ao sistema \n");
+					System.out.println("2 - Remover Funcionario");
+					System.out.println("Selecione essa opcao para remover um Funcionario do sistema \n");
+					System.out.println("3 - Atualizar Funcionario");
+					System.out.println("Selecione essa opcao para atualizar os status de um Funcionario no sistema \n");
 					System.out.println("4 - Voltar");
-					System.out.println("Selecione essa opção para voltar para a tela anterior \n");
+					System.out.println("Selecione essa opcao para voltar para a tela anterior \n");
 
 					operacao = in.next();
 
 					if (operacao.equals("1")) {
-						System.out.println("Você escolheu a opção cadastrar funcionário");
+						System.out.println("Voce escolheu a opcao cadastrar Funcionario");
 					} else if (operacao.equals("2")) {
-						System.out.println("Você escolheu a opção remover funcionário");
+						System.out.println("Voce escolheu a opcao remover Funcionario");
 					} else if (operacao.equals("3")) {
-						System.out.println("Você escolheu a opção atualizar funcionário");
+						System.out.println("Voce escolheu a opcao atualizar Funcionario");
 					} else if (operacao.equals("4")) {
 					} else
-						System.out.println("Comando inválido. Você será redirecionado para a página inicial.");
+						System.out.println("Comando invalido. Voce sera redirecionado para a pagina inicial.");
 
 					///////////////////////////////////////////////
 					// Finalizar sessao
 				} else if (comando.equals("6")) {
-					System.out.println("Você deseja finalizar sua sessão? \nDigite Sim para confirmar");
+					System.out.println("Voce deseja finalizar sua sessao? \nDigite Sim para confirmar");
 					auxiliar = in.next();
 					if (auxiliar.equals("Sim") || auxiliar.equals("sim")) {
-						System.out.println("Sua sessão foi finalizada");
+						System.out.println("Sua sessao foi finalizada");
 						sessao = false;
 						programaAberto = false;
 					} else
-						System.out.println("Comando inválido. Você será redirecionado para a página inicial. \n");
+						System.out.println("Comando invalido. Voce sera redirecionado para a pagina inicial. \n");
 					///////////////////////////////////////////////
 				} else
-					System.out.println("Comando inválido. Por favor digite um dos comandos abaixo. \n");
+					System.out.println("Comando invalido. Por favor digite um dos comandos abaixo. \n");
 
 			}
 		}
