@@ -76,5 +76,15 @@ public class RepositorioPratosArray implements RepositorioPratos {
 		}
 		
 	}
+	
+	public Prato procurarPrato(String nomePrato) {
+			Prato resposta = null;
+			for (int i = 0; i < this.arrayPratos.length; i++) {
+				if (this.arrayPratos[i].getNome().equals(nomePrato)) {
+					resposta = this.arrayPratos[i];
+				}
+			}	
+			return resposta;
+	}
 
 }

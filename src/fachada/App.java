@@ -33,7 +33,7 @@ public class App {
 		Ingrediente[] arrayIngredientes = prato.getIngredientes();
 		boolean estoqueDisponivel = true;
 
-		for (int i = 0; i < arrayIngredientes.length; i++) {
+		for (int i = 0; i < arrayIngredientes.length && arrayIngredientes[i] != null; i++) {
 			if (!this.ingredientes.existe(arrayIngredientes[i])) {
 				estoqueDisponivel = false;
 			}
@@ -62,6 +62,13 @@ public class App {
 	public void atualizarPrato(Prato prato) throws PratoNaoCadastradoException {
 		if (this.pratos.getPratos().existePrato(prato.getNome())) {
 			this.pratos.atualizar(prato.getIdentificador(), prato.getNome(), prato.getPreco(), prato.getIngredientes());
+		} else {
+			throw new PratoNaoCadastradoException();
+		}
+	}
+	public Prato procurarPrato(String nomePrato) throws PratoNaoCadastradoException {
+		if (this.pratos.getPratos().existePrato(nomePrato)) {
+			return this.pratos.procurar(nomePrato);
 		} else {
 			throw new PratoNaoCadastradoException();
 		}
@@ -95,7 +102,7 @@ public class App {
 			throw new IngredienteNaoCadastradoException();
 		}
 	}
-	
+  
 	// retorna o ingrediente quando solicitado um identificador
 	public Ingrediente procurarIngrediente(String identificador) throws IngredienteNaoCadastradoException {
 		return this.ingredientes.procurar(identificador);

@@ -14,5 +14,7 @@ public interface RepositorioPratos {
 	void atualizarPrato(int identificador, String nome, double preco, Ingrediente[] ingredientes);
 	
 	String listarIngredientes(Prato prato);
+	
+	Prato procurarPrato(String nomePrato);
 		
 }
