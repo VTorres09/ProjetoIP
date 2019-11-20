@@ -1,8 +1,11 @@
 package mesas;
 
+import javax.xml.ws.handler.MessageContext;
+
 import funcionarios.Funcionario;
 import ingredientes.RepositorioIngredientes;
 import pedidos.RepositorioPedidos;
+import pratos.Prato;
 
 public class CadastroMesa {
 	private RepositorioMesa repositorio;
@@ -12,7 +15,7 @@ public class CadastroMesa {
 	}
 	
 	public void cadastrar(Mesa mesa) throws MesaJaCadastradaException {
-		if (!repositorio.existeMesa(mesa)) {
+		if (!repositorio.existe(mesa)) {
 			repositorio.inserirMesa(mesa);
 			
 		}else {
@@ -21,7 +24,7 @@ public class CadastroMesa {
 	}
 	
 	public void remover(Mesa mesa) throws MesaNaoCadastradaException{
-		if (repositorio.existeMesa(mesa)) {
+		if (repositorio.existe(mesa)) {
 			repositorio.removerMesa(mesa);
 		}else {
 			throw new MesaNaoCadastradaException();
@@ -30,12 +33,10 @@ public class CadastroMesa {
 	
 	public void listar() {}
 	
-	public boolean existe(Mesa mesa) {
-		return repositorio.existeMesa(mesa);
-	}
+	
 	
 	public void atualizar(Mesa mesa ,int numeroMesa, Funcionario funcionario, RepositorioPedidos pedidos) throws MesaNaoCadastradaException {
-		if (repositorio.existeMesa(mesa)) {
+		if (repositorio.existe(mesa)) {
 			repositorio.atualizarMesa(mesa, numeroMesa, funcionario, pedidos);
 		}else {
 			throw new MesaNaoCadastradaException();
@@ -48,6 +49,22 @@ public class CadastroMesa {
 	//Metodo que tava no repositorio botei aqui tambem
 	public double quantidadeMesas(Funcionario funcionario) {
 		return this.repositorio.quantidadeMesas(funcionario);
+	}
+	
+	public Mesa procurarMesa(int identificadorMesa) throws MesaNaoCadastradaException {
+	if(repositorio.existeMesa(identificadorMesa)) {
+		return repositorio.procurarMesa(identificadorMesa);
+	} else {
+		throw new MesaNaoCadastradaException();
+	}
+	}
+	
+	public boolean existe(int identificadorMesa) {
+		if(repositorio.existeMesa(identificadorMesa)) {
+			return true;
+		} else {
+			return false;
+		}
 	}
 
 }

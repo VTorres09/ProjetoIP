@@ -81,10 +81,90 @@ public class Programa {
 
 					if (operacao.equals("1")) {
 						System.out.println("Voce escolheu a opcao cadastrar pedido");
+						System.out.println("Digite nome do prato: ");
+					String nomePrato = in.next();
+						in.nextLine();
+						System.out.println("Digite a quantidade: ");
+                    int quantidadePedido = in.nextInt();
+                         in.nextLine();  
+                        System.out.println("Digite o identificador do pedido: ");
+                    String identificadorPedido = in.nextLine();
+                    System.out.println("Digite o identificador da mesa: ");
+                    int identificadorMesa = in.nextInt();
+                   
+                    try {
+                    	Prato prato = fachada.procurarPrato(nomePrato);
+                    	Pedidos pedido = new Pedidos (prato, quantidadePedido, identificadorPedido);
+                    	try{
+                    		 try {
+                             	Mesa mesa = fachada.procurarMesa(identificadorMesa);
+                             	try {
+									fachada.fazerPedido(pedido, mesa);
+								} catch (IngredientesInsuficientesException e) {
+									// TODO Auto-generated catch block
+									e.printStackTrace();
+								}
+                             } catch (MesaNaoCadastradaException e) {
+                             	System.out.println(e);
+                             }
+                            
+                          } catch (PedidoJaCadastradoException e){
+                            System.out.println(e);
+                          }
+                    } catch (PratoNaoCadastradoException e) {
+                    	System.out.println(e);
+                    }
+                    
+                   
+                    
+                    
+                    
 					} else if (operacao.equals("2")) {
 						System.out.println("Voce escolheu a opcao remover pedido");
+						System.out.println("Digite o identificador do pedido: ");
+						String identificadorPedido = in.next();
+					    in.nextLine();
+					    try {
+					    	Pedidos pedido = fachada.procurarPedido(identificadorPedido);
+					    	System.out.println("Digite o identificador da mesa: ");
+						    int identificadorMesa = in.nextInt();
+						    in.nextLine();
+					    	try {
+						    	Mesa mesa = fachada.procurarMesa(identificadorMesa);
+						    } catch (MesaNaoCadastradaException e) {
+						    	System.out.println(e);
+						    }
+					    } catch (PedidoNaoCadastradoException e) {
+					    	System.out.println(e);
+					    }
+					    
+					    
 					} else if (operacao.equals("3")) {
 						System.out.println("Voce escolheu a opcao atualizar pedido");
+						System.out.println("Digite nome do novo prato: ");
+						String novoPrato = in.next();
+						in.nextLine();
+						System.out.println("Digite nova quantidade de pratos: ");
+						int quantidadeNova = in.nextInt();
+						in.nextLine();
+						System.out.println("Digite um identificador do pedido : ");
+						String identificadorPedido = in.next();
+						in.nextLine();
+						System.out.println("Digite o identificador da mesa: ");
+	                    int identificadorMesa = in.nextInt();
+	                    
+	                    try {
+	                    	Pedidos pedido = fachada.procurarPedido(identificadorPedido);
+	                    	try {
+	                    		Mesa mesa = fachada.procurarMesa(identificadorMesa);
+	                    		fachada.atualizarPedido(pedido,mesa);
+	                      	} catch (MesaNaoCadastradaException e) {
+	                    		System.out.println(e);
+	                    	}
+	                    } catch (PedidoNaoCadastradoException e) {
+	                    	System.out.println(e);
+	                    }
+	                   
 					} else if (operacao.equals("4")) {
 					} else
 						System.out.println("Comando invalido. Voce sera redirecionado para a pagina inicial.");
@@ -415,4 +495,3 @@ public class Programa {
 	}
 
 }
-

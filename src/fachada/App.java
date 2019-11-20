@@ -120,7 +120,7 @@ public class App {
 		}
 
 		if (funcionarioExiste) {
-			if (this.mesas.getMesas().existeMesa(mesa)) {
+			if (this.mesas.getMesas().existe(mesa)) {
 				throw new MesaJaCadastradaException();
 			} else {
 				this.mesas.cadastrar(mesa);
@@ -132,7 +132,7 @@ public class App {
 
 	// remove uma mesa
 	public void removerMesa(Mesa mesa) throws MesaNaoCadastradaException {
-		if (this.mesas.getMesas().existeMesa(mesa)) {
+		if (this.mesas.getMesas().existe(mesa)) {
 			this.mesas.remover(mesa);
 		} else {
 			throw new MesaNaoCadastradaException();
@@ -141,7 +141,7 @@ public class App {
 
 	// atualiza uma mesa
 	public void atualizarMesa(Mesa mesa) throws MesaNaoCadastradaException {
-		if (this.mesas.getMesas().existeMesa(mesa)) {
+		if (this.mesas.getMesas().existe(mesa)) {
 			this.mesas.atualizar(mesa, mesa.getNum(), mesa.getFuncionario(), mesa.getPedidos());
 		} else {
 			throw new MesaNaoCadastradaException();
@@ -151,7 +151,7 @@ public class App {
 	// calcula o valor dos pedidos feitos pela mesa e retorna com a taxa de 10%, em
 	// seguida, redefine o repositorio da mesa
 	public String pedirConta(Mesa mesa) throws MesaNaoCadastradaException {
-		if (this.mesas.getMesas().existeMesa(mesa)) {
+		if (this.mesas.getMesas().existe(mesa)) {
 			double consumo = (mesa.getPedidos().consumoMesa()) * (0.1);
 			// cria um novo repositorio para mesa
 
@@ -164,6 +164,15 @@ public class App {
 			}
 
 			return "Seu consumo foi de: R$ " + consumo + ". (A taxa de 10% opcional esta inclusa).";
+		} else {
+			throw new MesaNaoCadastradaException();
+		}
+	}
+	
+	//procurar mesa 
+	public Mesa procurarMesa(int identificadorMesa) throws MesaNaoCadastradaException {
+		if(mesas.existe(identificadorMesa)) {
+			return this.mesas.procurarMesa(identificadorMesa);
 		} else {
 			throw new MesaNaoCadastradaException();
 		}
@@ -212,7 +221,14 @@ public class App {
 			throw new PedidoNaoCadastradoException();
 		}
 	}
-
+    //procura um pedido
+	public Pedidos procurarPedido(String identificadorPedido) throws PedidoNaoCadastradoException {
+		if(pedidos.existePedido(identificadorPedido)) {
+			return this.pedidos.procurar(identificadorPedido);
+		} else {
+			throw new PedidoNaoCadastradoException();
+		}
+	}
 	// funcionarios
 	
 	//cadastra um funcionario

@@ -6,8 +6,8 @@ public interface RepositorioPedidos {
 	void inserir(Pedidos pedido);
 	void remover(Pedidos pedido);
 	void atualizar(Pedidos pedido);
-	String listar(); 
 	boolean existe(Pedidos pedido);
-	Pedidos procurar(Pedidos pedido) throws PedidoNaoCadastradoException;
+	boolean existePedido(String identificadorPedido);
+	Pedidos procurar(String identificadorPedido);
 	double consumoMesa();
 }

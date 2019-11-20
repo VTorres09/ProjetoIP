@@ -41,28 +41,18 @@ public class RepositorioPedidosLista implements RepositorioPedidos{
 			this.pedido = pedidos;
 		} else
 			this.prox.atualizar(pedidos);
-	}
-
-	public String listar() {
-		String tudo = "";
-		if(this.pedido == null) {
-			tudo += "";
-		} else {
-			tudo += this.pedido.toString() + "\n";
-		}
-		return tudo;
-	}
+	}	
 	
-	public Pedidos procurar(Pedidos pedido) throws PedidoNaoCadastradoException {
-		if(this.pedido == pedido) {
-			return pedido;
+	public Pedidos procurar(String identificadorPedido){
+		if(this.pedido.getIdentificador().equals(identificadorPedido)) {
+			return this.pedido;
 		} else if (this.prox !=null){
-			return this.prox.procurar(pedido);
+			return this.prox.procurar(identificadorPedido);
 		} else {
-			throw new PedidoNaoCadastradoException();
+			return null;
 		}
 	}
-
+   
 	public double consumoMesa() {
 		double conta = 0;
 		if(this.pedido == null) {
@@ -71,5 +61,16 @@ public class RepositorioPedidosLista implements RepositorioPedidos{
 			conta += ((this.pedido.getPrato().getPreco())*(this.pedido.getQuantidadePratos())) + (this.prox.consumoMesa());
 		}
 		return conta;
+	}
+	public boolean existePedido(String identificadorPedido) {
+		if (this.pedido != null) {
+			if (this.pedido.getIdentificador().equals(identificadorPedido)) {
+				return true;
+			} else {
+				return this.prox.existePedido(identificadorPedido);
+			}
+		} else {
+			return false;
+		}
 	}
 }

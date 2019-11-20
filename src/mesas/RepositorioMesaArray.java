@@ -1,6 +1,8 @@
 package mesas;
 
 import funcionarios.Funcionario;
+import pedidos.PedidoNaoCadastradoException;
+import pedidos.Pedidos;
 import pedidos.RepositorioPedidos;
 
 public class RepositorioMesaArray implements RepositorioMesa{
@@ -31,7 +33,7 @@ public class RepositorioMesaArray implements RepositorioMesa{
 
     
 
-    public boolean existeMesa(Mesa mesa) {
+    public boolean existe(Mesa mesa) {
         boolean existe = false;
         for (int i = 0; i < count; i++) {
             if (arrayMesa[i].getNum()== mesa.getNum()) {
@@ -68,6 +70,28 @@ public class RepositorioMesaArray implements RepositorioMesa{
 
     
     }
+    
+    
+    public Mesa procurarMesa(int identificadorMesa) {
+		Mesa resposta = null;
+    	for (int i = 0; i < 100 && this.arrayMesa[i] != null; i++) {
+			if (this.arrayMesa[i].getNum() == (identificadorMesa)) {
+				return this.arrayMesa[i];
+			}
+			
+		}
+    	return resposta;
+	}
+    
+    public boolean existeMesa(int identificadorMesa) {
+		boolean retorno = false;
+		for (int i = 0; i < count; i++) {
+			if (arrayMesa[i].getNum()==(identificadorMesa)) {
+				retorno = true;
+			}
+		}
+		return retorno;
+	}
 
 
 }

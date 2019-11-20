@@ -41,13 +41,6 @@ public class CadastroPedidos {
 		}
     }
 	
-   public String imprimir() throws NaoExistemPedidosException{
-	   if(repositorio.listar().contentEquals("")) {
-	    throw new NaoExistemPedidosException();
-	   } else {
-		  return repositorio.listar();
-	   }
-   }
    public RepositorioPedidos getPedidos() {
 	   return this.repositorio;
    }
@@ -60,8 +53,20 @@ public class CadastroPedidos {
 	   }
    }
    
-   Pedidos procurar(Pedidos pedido) throws PedidoNaoCadastradoException {
-	   return repositorio.procurar(pedido);
+  public boolean existePedido(String identificadorPedido) {
+	   if(repositorio.existePedido(identificadorPedido)) {
+		   return true;
+	   } else {
+		   return false;
+	   }
    }
+   
+    public Pedidos procurar(String identificadorPedido) throws PedidoNaoCadastradoException {
+	 if(repositorio.existePedido(identificadorPedido)) {
+    	return repositorio.procurar(identificadorPedido);
+   } else {
+	   throw new PedidoNaoCadastradoException();
+   }
+    }
 
 }

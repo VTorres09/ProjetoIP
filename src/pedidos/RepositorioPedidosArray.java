@@ -40,21 +40,15 @@ public class RepositorioPedidosArray implements RepositorioPedidos {
 		}
 	}
 
-	public String listar() {
-		String tudo = "";
-		for (int i = 0; i < 100 && arrayPedido[i] != null; i++) {
-			tudo += arrayPedido[i] + "\n";
-		}
-		return tudo;
-	}
 
-	public Pedidos procurar(Pedidos pedido) throws PedidoNaoCadastradoException {
+	public Pedidos procurar(String identidficadorPedido) {
+		Pedidos resposta = null;
 		for (int i = 0; i < 100 && arrayPedido[i] != null; i++) {
-			if (arrayPedido[i] == pedido) {
-				return pedido;
+			if (arrayPedido[i].getIdentificador().equals(identidficadorPedido)) {
+				return arrayPedido[i];
 			}
 		}
-		throw new PedidoNaoCadastradoException();
+		return resposta;
 	}
 
 	public double consumoMesa() {
@@ -64,4 +58,14 @@ public class RepositorioPedidosArray implements RepositorioPedidos {
 		}
 		return conta;
 	}
+	
+	 public boolean existePedido(String identificadorPedido) {
+			boolean resposta = false;
+			for (int i = 0; i < arrayPedido.length; i++) {
+				if (arrayPedido[i].getIdentificador().equals(identificadorPedido)) {
+					return  true;
+				}
+			}
+			return resposta;
+		}
 }

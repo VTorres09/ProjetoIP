@@ -2,6 +2,7 @@ package mesas;
 
 import funcionarios.Funcionario;
 import pedidos.RepositorioPedidos;
+import pratos.Prato;
 
 public class RepositorioMesaLista implements RepositorioMesa {
     private Mesa mesa;
@@ -29,13 +30,13 @@ public class RepositorioMesaLista implements RepositorioMesa {
         }
     }
     
-    public boolean existeMesa(Mesa mesa){
+    public boolean existe(Mesa mesa){
         if (this.mesa==null){
             return false;
         }else if (this.mesa.getNum()== mesa.getNum()){
             return true;
         }else{
-            return this.proximo.existeMesa(mesa);
+            return this.proximo.existe(mesa);
         }
 
     }
@@ -63,11 +64,27 @@ public class RepositorioMesaLista implements RepositorioMesa {
 	
 	}
 	return 0;
-
-
+    }
+    
+	public Mesa procurarMesa(int identificadorMesa){
+		if (this.mesa.getNum()==(identificadorMesa)) {
+			return this.mesa; 
+		} else {
+			return this.proximo.procurarMesa(identificadorMesa);
+	}
 
     }
-	
+	public boolean existeMesa(int identificadorMesa) {
+		if (this.mesa != null) {
+			if (this.mesa.getNum()==(identificadorMesa)) {
+				return true;
+			} else {
+				return this.proximo.existeMesa(identificadorMesa);
+			}
+		} else {
+			return false;
+		}
+	}
 	
 	
 
