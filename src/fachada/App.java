@@ -102,6 +102,7 @@ public class App {
 			throw new IngredienteNaoCadastradoException();
 		}
 	}
+  
 	// retorna o ingrediente quando solicitado um identificador
 	public Ingrediente procurarIngrediente(String identificador) throws IngredienteNaoCadastradoException {
 		return this.ingredientes.procurar(identificador);
