@@ -92,6 +92,11 @@ public class RepositorioPratosLista implements RepositorioPratos {
 		
 	}
 
-	
+	public Prato procurarPrato(String nomePrato) {
+		if (this.prato.getNome().equals(nomePrato)) {
+			return this.prato; 
+		} else
+			return this.proximo.procurarPrato(nomePrato);
+	}
 
 }

@@ -2,6 +2,7 @@
 package pratos;
 
 import ingredientes.Ingrediente;
+import ingredientes.IngredienteNaoCadastradoException;
 
 public class CadastroPratos {
 	private RepositorioPratos pratos;
@@ -45,6 +46,13 @@ public class CadastroPratos {
 		return this.pratos;
 	}
 	
+	public Prato procurar(String nomePrato) throws PratoNaoCadastradoException {
+		if(pratos.existePrato(nomePrato)) {
+			return this.pratos.procurarPrato(nomePrato);
+		} else {
+			throw new PratoNaoCadastradoException();
+		}
+	}
 	
 	public boolean existe(Prato prato) {
 		String nomePrato = prato.getNome();
