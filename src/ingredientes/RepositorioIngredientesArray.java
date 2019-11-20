@@ -11,10 +11,6 @@ public class RepositorioIngredientesArray implements RepositorioIngredientes {
 
 	// Adiciona algum ingrediente ao Estoque
 	public void inserir(Ingrediente ingrediente) {
-		if(this.estoque.length == contadorLista) {
-			Ingrediente[] array = new Ingrediente[this.estoque.length*2];
-			this.estoque = array;
-		}
 			this.estoque[contadorLista] = ingrediente;
 			this.contadorLista++;
 	}
