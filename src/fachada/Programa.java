@@ -108,7 +108,10 @@ public class Programa {
 					in.nextLine();
 
 					String nomePrato;
+					String fim;
 					double precoPrato;
+					int contador = 0;
+					String identificadorIngrediente = "";
 					Ingrediente[] ingredientesPrato = new Ingrediente[10];
 					int identificadorPrato;
 
@@ -122,44 +125,42 @@ public class Programa {
 						System.out.println(
 								"Agora é necessário que você informe os ingredientes que são usados no prato : \n Ao terminar, digite fim");
 
-						for (String fim = ""; !fim.equals("fim");) {
-							int contador = 0;
-							String identificadorIngrediente;
+						for (fim = ""; !fim.equals("fim");) {
+							
+							
 							System.out.println("Digite um identificador para seu ingrediente:");
 							identificadorIngrediente = in.nextLine();
                                                   
 							System.out.println("Fim?");
-							fim = in.nextLine();
-								
-							Ingrediente ingrediente;
-							try {
-								ingrediente = fachada.procurarIngrediente(identificadorIngrediente);
-								ingredientesPrato[contador] = ingrediente;
-								contador++;		
-								System.out.println("Agora digite o identificador desse prato:");
-								identificadorPrato = in.nextInt();
-
-								Prato prato = new Prato(nomePrato, precoPrato, ingredientesPrato, identificadorPrato);
-								System.out.println("Prato cadastrado com sucesso!");
-								try {
-									try {
-										fachada.cadastrarPrato(prato);
-									} catch (IngredientesInsuficientesException e) {
-										e.printStackTrace();
-									}
-								} catch (PratoJaCadastradoException e) {
-									System.out.println(e);
-								}
-								
-							} catch (IngredienteNaoCadastradoException e) {
-								
-								e.printStackTrace();
-								in.nextLine();
-								fim = "fim";
-							}
+							fim = in.nextLine();	
 
 						}
+						Ingrediente ingrediente;
+						try {
+							ingrediente = fachada.procurarIngrediente(identificadorIngrediente);
+							ingredientesPrato[contador] = ingrediente;
+							contador++;		
+							System.out.println("Agora digite o identificador desse prato:");
+							identificadorPrato = in.nextInt();
 
+							Prato prato = new Prato(nomePrato, precoPrato, ingredientesPrato, identificadorPrato);
+							System.out.println("Prato cadastrado com sucesso!");
+							try {
+								try {
+									fachada.cadastrarPrato(prato);
+								} catch (IngredientesInsuficientesException e) {
+									e.printStackTrace();
+								}
+							} catch (PratoJaCadastradoException e) {
+								System.out.println(e);
+							}
+							
+						} catch (IngredienteNaoCadastradoException e) {
+							
+							e.printStackTrace();
+							in.nextLine();
+							fim = "fim";
+						}
 						
 
 					} else if (operacao.equals("2")) {
@@ -185,6 +186,7 @@ public class Programa {
 
 
 					} else if (operacao.equals("3")) {
+						contador = 0;
 						System.out.println("Você escolheu a opção atualizar prato");
 						System.out.print("Digite o novo nome do prato (Se desejado): ");
 						String novoNomePrato = in.nextLine();
@@ -193,9 +195,8 @@ public class Programa {
 						in.nextLine();
 						System.out.println("Digite os novos ingredientes do prato (Se desejado): \n Ao terminar, digite fim.");
 						Ingrediente[] ingredientesNovoPrato = new Ingrediente[10];
-						for (String fim = ""; !fim.equals("fim");) {
-							int contador = 0;
-							String identificadorIngrediente;
+						for (fim = ""; !fim.equals("fim");) {
+				
 							System.out.println("Digite um identificador para seu ingrediente:");
 							identificadorIngrediente = in.nextLine();
                                                   
