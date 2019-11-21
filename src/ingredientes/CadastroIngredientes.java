@@ -10,10 +10,6 @@ public class CadastroIngredientes {
 		this.estoque = rep;
 	}
 
-	// Lembrar do problema dos ingredientes invalidos
-	// Ingrediente deve ter um nome, fornecedor e preco/validade no minimo(Analisar
-	// isso na fachada)
-
 	// Insere um ingrediente no Estoque
 	public void inserir(Ingrediente ingrediente) throws IngredienteJaCadastradoException {
 		if (!this.estoque.existe(ingrediente.getIdentificador()))
@@ -45,7 +41,7 @@ public class CadastroIngredientes {
 		else
 			throw new IngredienteNaoCadastradoException();
 	}
-	
+	// Analisa se um ingrediente existe ou nao no estoque
 	public boolean existe(Ingrediente ingrediente) {
 		String identificador = ingrediente.getIdentificador();
 		if(estoque.existe(identificador)) {
@@ -54,7 +50,7 @@ public class CadastroIngredientes {
 			return false;
 		}
 	}
-
+	//Retorna todos os ingredientes do estoque
 	public RepositorioIngredientes getIngredientes() {
 		return this.estoque;
 	}

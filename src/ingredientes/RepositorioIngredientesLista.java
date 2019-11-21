@@ -20,7 +20,6 @@ public class RepositorioIngredientesLista implements RepositorioIngredientes {
 
 	// Remove algum ingrediente ao Estoque
 	public void remover(String identificador) {
-		// Mensagem de erro se o ingrediente for nulo
 		if (this.ingrediente.getIdentificador().equals(identificador)) {
 			this.ingrediente = this.proximo.ingrediente;
 			this.proximo = this.proximo.proximo;

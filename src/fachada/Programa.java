@@ -37,8 +37,7 @@ public class Programa {
 			String senhaAtual = in.nextLine();
 
 			sessao = true;
-			// if senha e login sao validos, sessao true, senao sessao invalidada
-
+			
 			for (; sessao == true;) {
 
 				System.out.println("Bem vindo ao SCR (Sistema de Controle de Restaurante) \n ");
@@ -349,7 +348,7 @@ public class Programa {
 					} else
 						System.out.println("Comando invalido. Voce sera redirecionado para a pagina inicial.");
 					///////////////////////////////////////////////
-					// Ingredientes (Falta teste)
+					// Ingredientes
 				} else if (comando.equals("4")) {
 					System.out.println("Voce escolheu a opcao Ingredientes" + "\n"
 							+ "Escolha um dos comandos abaixo para selecionar a operacao desejada: \n");
@@ -367,10 +366,7 @@ public class Programa {
 
 					String nomeIngrediente;
 					int qtdIngrediente;
-					String tipoEstoqueIngrediente;
-					String fornecedorIngrediente;
 					double precoIngrediente;
-					String validadeIngrediente;
 					String identificadorIngrediente;
 
 					if (operacao.equals("1")) {
@@ -380,27 +376,21 @@ public class Programa {
 						System.out.print("Agora digite a quantidade desse ingrediente:");
 						qtdIngrediente = in.nextInt();
 						in.nextLine();
-						System.out.print("Agora digite o fornecedor desse ingrediente:");
-						fornecedorIngrediente = in.nextLine();
-						System.out.print("Agora digite o tipo de estocagem desse ingrediente:");
-						tipoEstoqueIngrediente = in.nextLine();
 						System.out.print("Agora digite o preco do ingrediente:");
 						precoIngrediente = in.nextDouble();
 						in.nextLine();
-						System.out.print("Agora digite a validade desse ingrediente:");
-						validadeIngrediente = in.nextLine();
 						System.out.print("Agora digite um identificador para seu ingrediente:");
 						identificadorIngrediente = in.nextLine();
 
 						Ingrediente ingrediente = new Ingrediente(nomeIngrediente, qtdIngrediente,
-								tipoEstoqueIngrediente, fornecedorIngrediente, precoIngrediente, validadeIngrediente,
-								identificadorIngrediente);
-						System.out.println("Ingrediente Cadastrado com sucesso!");
-						System.out.println("-----------------------------------");
+								precoIngrediente, identificadorIngrediente);
 						try {
 							fachada.cadastrarIngrediente(ingrediente);
+							System.out.println("Ingrediente Cadastrado com sucesso!");
+							System.out.println("-----------------------------------");
 						} catch (IngredienteJaCadastradoException e) {
 							System.out.println(e);
+							in.nextLine();
 						}
 
 					} else if (operacao.equals("2")) {
@@ -410,8 +400,11 @@ public class Programa {
 
 						try {
 							fachada.removerIngrediente(identificadorIngrediente);
+							System.out.println("Ingrediente Removido com sucesso!");
+							System.out.println("-----------------------------------");
 						} catch (IngredienteNaoCadastradoException e) {
 							System.out.println(e);
+							in.nextLine();
 						}
 
 					} else if (operacao.equals("3")) {
@@ -421,24 +414,19 @@ public class Programa {
 						System.out.println("Agora digite a quantidade desse ingrediente:");
 						qtdIngrediente = in.nextInt();
 						in.nextLine();
-						System.out.println("Agora digite o fornecedor desse ingrediente:");
-						fornecedorIngrediente = in.nextLine();
-						System.out.println("Agora digite o tipo de estocagem desse ingrediente:");
-						tipoEstoqueIngrediente = in.nextLine();
 						System.out.println("Agora digite o preco do ingrediente:");
 						precoIngrediente = in.nextDouble();
 						in.nextLine();
-						System.out.println("Agora digite a validade desse ingrediente:");
-						validadeIngrediente = in.nextLine();
 						System.out.println("Agora digite um identificador para seu ingrediente:");
 						identificadorIngrediente = in.nextLine();
 
 						Ingrediente ingrediente = new Ingrediente(nomeIngrediente, qtdIngrediente,
-								tipoEstoqueIngrediente, fornecedorIngrediente, precoIngrediente, validadeIngrediente,
-								identificadorIngrediente);
+								precoIngrediente, identificadorIngrediente);
 					
 						try {
 							fachada.atualizarIngrediente(ingrediente);
+							System.out.println("Ingrediente Atualizado com sucesso!");
+							System.out.println("-----------------------------------");
 						} catch (IngredienteNaoCadastradoException e) {
 							System.out.println(e);
 							in.nextLine();

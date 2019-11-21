@@ -5,18 +5,14 @@ public class RepositorioIngredientesArray implements RepositorioIngredientes {
 	private int contadorLista;
 
 	public RepositorioIngredientesArray() {
-		estoque = new Ingrediente[5];
+		estoque = new Ingrediente[100];
 		contadorLista = 0;
 	}
 
 	// Adiciona algum ingrediente ao Estoque
 	public void inserir(Ingrediente ingrediente) {
-		if(this.estoque.length == contadorLista) {
-			Ingrediente[] array = new Ingrediente[this.estoque.length*2];
-			this.estoque = array;
-		}
-			this.estoque[contadorLista] = ingrediente;
-			this.contadorLista++;
+		this.estoque[contadorLista] = ingrediente;
+		this.contadorLista++;
 	}
 
 	// Remove algum ingrediente ao Estoque
@@ -47,17 +43,17 @@ public class RepositorioIngredientesArray implements RepositorioIngredientes {
 			if (this.estoque[contador].getIdentificador().equals(identificador)) {
 				resposta = this.estoque[contador];
 			}
-		}	
+		}
 		return resposta;
 	}
-	
+
 	// Analisa se algum ingrediente existe no estoque
-		public boolean existe (String identificador) {
-			boolean resposta = false;
-			for (int contador = (this.contadorLista - 1); contador >= 0; contador--)
-				if (this.estoque[contador].getIdentificador().equals(identificador))
-					resposta = true;
-			return resposta;
-		}
+	public boolean existe(String identificador) {
+		boolean resposta = false;
+		for (int contador = (this.contadorLista - 1); contador >= 0; contador--)
+			if (this.estoque[contador].getIdentificador().equals(identificador))
+				resposta = true;
+		return resposta;
+	}
 
 }
