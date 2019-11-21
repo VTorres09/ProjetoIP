@@ -337,13 +337,86 @@ public class Programa {
 					operacao = in.next();
 
 					if (operacao.equals("1")) {
-						System.out.println("Voce escolheu a opcao cadastrar mesa");
+                        
+											System.out.println("Você escolheu a opção cadastrar mesa");
+                        					System.out.println ("Qual o numero da mesa que você quer cadastrar?");
+                                          	int numeroMesa= in.nextInt();
+                                          	in.nextLine();
+                                          	System.out.println("Digite o login :");
+                                          	String loginFuncionario = in.nextLine();
+                                          	System.out.println("Digite a senha :");
+                                          	String senhaFuncionario = in.nextLine();
+                                          	try {
+                                          		Funcionario funcionarioAtual = fachada.procurarFuncionario(loginFuncionario,  senhaFuncionario);
+                                          		RepositorioPedidosLista repPedido =new RepositorioPedidosLista();
+                                          		Mesa mesaNova = new Mesa( funcionarioAtual , numeroMesa, repPedido);
+                                          		try {
+                                          			fachada.cadastrarMesa(mesaNova);
+                                          			System.out.println("Mesa cadastrada com sucesso!");
+                                          		}catch(MesaJaCadastradaException e) {
+                                          			System.out.println(e);
+                                          		}
+                                          	}catch (FuncionarioNaoExistenteException t) {
+                                          		System.out.println(t);
+                                          	}
+                                          	
+                                          	
+                                                  //funcionario que esta utilizando o sistema
+                                          
 					} else if (operacao.equals("2")) {
-						System.out.println("Voce escolheu a opcao remover mesa");
+						System.out.println("Você escolheu a opção remover mesa");
+                                          	System.out.println("Qual o numero da mesa que deseja remover?");
+                                          	int numeroMesa= in.nextInt();
+                                          	try {
+                                          		Mesa mesaRemover = fachada.procurarMesa(numeroMesa);
+                            
+                                          		fachada.removerMesa(mesaRemover);
+                                          		System.out.println("Mesa removida com sucesso");
+                                          		
+                                          			
+                                          		
+                                          	}catch(MesaNaoCadastradaException e){
+                                          		System.out.print(e);
+                                          	}
+
+                                          	
 					} else if (operacao.equals("3")) {
 						System.out.println("Voce escolheu a opcao atualizar mesa");
+						System.out.println("Qual a mesa que deseja atualizar?");
+                      	int numeroMesa= in.nextInt();
+                      	System.out.println("Qual o novo numero da mesa que deseja atualizar?");
+                      	int novoNum =in.nextInt();
+                      	System.out.println("Login do funcionario que ficara responsavel:");
+                      	String log = in.nextLine();
+                      	System.out.println("Senha do funcionario que ficara responsavel:");
+                      	String senhaFuncio = in.nextLine();
+                      	try {
+                      		Funcionario funcionarioNovo = fachada.procurarFuncionario(log,  senhaFuncio);
+                      		
+                      		try {
+                      			Mesa mesaAtualizar = fachada.procurarMesa(numeroMesa);
+                      			fachada.atualizarMesa(mesaAtualizar,novoNum,funcionarioNovo);
+                      			System.out.print("Mesa atualizada com sucesso!");
+                      		}catch(MesaNaoCadastradaException e){
+                      			System.out.print(e);
+                      		}
+                      	}catch(FuncionarioNaoExistenteException t){
+                      		System.out.println(t);
+                      	}
+						
 					} else if (operacao.equals("4")) {
 						System.out.println("Voce escolheu a opcao finalizar pedidos da mesa");
+						System.out.println("Qual o numero da mesa que deseja finalizar?");
+						int numeroMesa= in.nextInt();
+						try {
+                      		Mesa mesaFinalizar = fachada.procurarMesa(numeroMesa);
+                      		String conta =fachada.pedirConta(mesaFinalizar);
+                      		System.out.print(conta);
+                      	}catch(MesaNaoCadastradaException e){
+                      		System.out.print(e);
+                      	}
+						
+						
 					} else if (operacao.equals("5")) {
 					} else
 						System.out.println("Comando invalido. Voce sera redirecionado para a pagina inicial.");
