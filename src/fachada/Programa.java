@@ -589,7 +589,7 @@ public class Programa {
 											Funcionario removido = fachada.procurarFuncionario(loginFuncionario, senhaFuncionario);
 											boolean check = true;
 											while(check) {
-												System.out.println("Deseja mesmo remover "+removido+"?(sim/nao) ");
+												System.out.println("Deseja mesmo remover "+removido.getNome()+"?(sim/nao) ");
 												String res = in.nextLine();
 												if(res.equals("sim")) {
 													check = false;
