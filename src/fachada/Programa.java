@@ -365,7 +365,7 @@ public class Programa {
                                           
 					} else if (operacao.equals("2")) {
 						System.out.println("Você escolheu a opção remover mesa");
-                                          	System.out.println("Qual o numero da mesa que deseja remover?");
+                         	System.out.println("Qual o numero da mesa que deseja remover?");
                                           	int numeroMesa= in.nextInt();
                                           	try {
                                           		Mesa mesaRemover = fachada.procurarMesa(numeroMesa);
@@ -386,6 +386,7 @@ public class Programa {
                       	int numeroMesa= in.nextInt();
                       	System.out.println("Qual o novo numero da mesa que deseja atualizar?");
                       	int novoNum =in.nextInt();
+                      	in.nextLine();
                       	System.out.println("Login do funcionario que ficara responsavel:");
                       	String log = in.nextLine();
                       	System.out.println("Senha do funcionario que ficara responsavel:");
