@@ -140,9 +140,9 @@ public class App {
 	}
 
 	// atualiza uma mesa
-	public void atualizarMesa(Mesa mesa) throws MesaNaoCadastradaException {
+	public void atualizarMesa(Mesa mesa, int novoNum, Funcionario novoFuncionario) throws MesaNaoCadastradaException {
 		if (this.mesas.getMesas().existe(mesa)) {
-			this.mesas.atualizar(mesa, mesa.getNum(), mesa.getFuncionario(), mesa.getPedidos());
+			this.mesas.atualizar(mesa, novoNum, novoFuncionario, mesa.getPedidos());
 		} else {
 			throw new MesaNaoCadastradaException();
 		}

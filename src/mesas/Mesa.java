@@ -10,7 +10,7 @@ public class Mesa {
 	private int numero;
 	private RepositorioPedidos pedidos;
 	
-	Mesa(Funcionario funcionario, int num, RepositorioPedidos pedidos){
+	public Mesa(Funcionario funcionario, int num, RepositorioPedidos pedidos){
 		this.funcionario = funcionario;
 		this.numero= num;
 		this.pedidos=pedidos;
