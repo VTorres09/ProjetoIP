@@ -60,7 +60,7 @@ public class RepositorioFuncionariosArray implements RepositorioFuncionarios {
 			if (funcionario[n] == null) {
 				continuar = false;
 				res = false;
-			} else if (funcionario[n] == procurado) {
+			} else if (funcionario[n].getCpf().contentEquals(procurado.getCpf())) {
 				continuar = false;
 				res = true;
 			} else {
