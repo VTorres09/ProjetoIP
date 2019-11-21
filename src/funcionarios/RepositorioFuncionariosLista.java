@@ -39,7 +39,7 @@ public class RepositorioFuncionariosLista implements RepositorioFuncionarios {
 	public boolean existeFuncionario(Funcionario procurado) {
 		if (this.funcionario == null) {
 			return false;
-		} else if (this.funcionario == procurado) {
+		} else if (this.funcionario.getCpf().equals(procurado.getCpf())) {
 			return true;
 		} else {
 			return this.prox.existeFuncionario(procurado);
